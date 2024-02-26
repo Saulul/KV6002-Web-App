@@ -1,11 +1,10 @@
-name: Run Dev Check
-
+name: Run Build
 on:
   pull_request:
     branches: [ main ]  # Adjust the branch if needed
 
 jobs:
-  dev-check:
+  build-check:
     runs-on: ubuntu-latest
 
     steps:
