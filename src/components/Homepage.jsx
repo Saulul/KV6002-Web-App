@@ -17,7 +17,7 @@ function Homepage(props) {
       <div className="flex overflow-hidden relative flex-col px-9 py-12 mt-8 w-full max-w-[1320px] min-h-[596px] max-md:px-5 max-md:max-w-full">
         <img
           loading="lazy"
-          srcSet="assets\home-banner.png"
+          srcSet="public\assets\home-banner.png"
           className="object-cover absolute inset-0 size-full"
         />
         <div className="relative self-center mt-16 ml-14 text-6xl font-bold text-center text-white uppercase max-md:mt-10 max-md:max-w-full max-md:text-4xl">
@@ -28,14 +28,14 @@ function Homepage(props) {
           <div className="flex justify-center items-center px-2.5 aspect-square bg-zinc-100 bg-opacity-20 h-[50px] rounded-[50px] w-[50px]">
             <img
               loading="lazy"
-              src="assets\Button.png"
+              src="public\assets\Button.png"
               className="w-full aspect-square"
             />
           </div>
           <div className="flex justify-center items-center px-2.5 aspect-square bg-zinc-100 bg-opacity-20 h-[50px] rounded-[50px] w-[50px]">
             <img
               loading="lazy"
-              src="assets\Button (1).png"
+              src="public\assets\Button (1).png"
               className="w-full aspect-square"
             />
           </div>
@@ -127,7 +127,7 @@ function Homepage(props) {
               <div className="flex overflow-hidden relative flex-col items-start pt-2.5 pr-16 pb-12 pl-2.5 text-xs text-center whitespace-nowrap aspect-[1.45] max-md:pr-5">
                 <img
                   loading="lazy"
-                  srcSet="assets\image3.png"
+                  srcSet="public\assets\image3.png"
                   className="object-cover absolute inset-0 size-full"
                 />
                 <div className="relative justify-center px-2.5 py-1.5 mb-28 bg-white rounded-md aspect-[1.91] max-md:mb-10">
@@ -151,7 +151,7 @@ function Homepage(props) {
               <div className="flex overflow-hidden relative flex-col items-start pt-2.5 pr-16 pb-12 pl-2.5 text-xs text-center whitespace-nowrap aspect-[1.45] max-md:pr-5">
                 <img
                   loading="lazy"
-                  srcSet="assets\image2.png"
+                  srcSet="public\assets\image2.png"
                   className="object-cover absolute inset-0 size-full"
                 />
                 <div className="relative justify-center px-2.5 py-1.5 mb-28 bg-white rounded-md aspect-[1.91] max-md:mb-10">
@@ -175,7 +175,7 @@ function Homepage(props) {
               <div className="flex overflow-hidden relative flex-col items-start pt-2.5 pr-16 pb-12 pl-2.5 text-xs text-center whitespace-nowrap aspect-[1.45] max-md:pr-5">
                 <img
                   loading="lazy"
-                  srcSet="assets\image1.png"
+                  srcSet="public\assets\image1.png"
                   className="object-cover absolute inset-0 size-full"
                 />
                 <div className="relative justify-center px-2.5 py-1.5 mb-28 bg-white rounded-md aspect-[1.91] max-md:mb-10">
@@ -203,7 +203,7 @@ function Homepage(props) {
               <div className="flex overflow-hidden relative flex-col items-start pt-2.5 pr-16 pb-12 pl-2.5 text-xs text-center whitespace-nowrap aspect-[1.45] max-md:pr-5">
                 <img
                   loading="lazy"
-                  srcSet="assets\image1.png"
+                  srcSet="public\assets\image1.png"
                   className="object-cover absolute inset-0 size-full"
                 />
                 <div className="relative justify-center px-2.5 py-1.5 mb-28 bg-white rounded-md aspect-[1.91] max-md:mb-10">
@@ -227,7 +227,7 @@ function Homepage(props) {
               <div className="flex overflow-hidden relative flex-col items-start pt-2.5 pr-16 pb-12 pl-2.5 text-xs text-center whitespace-nowrap aspect-[1.45] max-md:pr-5">
                 <img
                   loading="lazy"
-                  srcSet="assets\image3.png"
+                  srcSet="public\assets\image3.png"
                   className="object-cover absolute inset-0 size-full"
                 />
                 <div className="relative justify-center px-2.5 py-1.5 mb-28 bg-white rounded-md aspect-[1.91] max-md:mb-10">
@@ -251,7 +251,7 @@ function Homepage(props) {
               <div className="flex overflow-hidden relative flex-col items-start pt-2.5 pr-16 pb-12 pl-2.5 text-xs text-center whitespace-nowrap aspect-[1.45] max-md:pr-5">
                 <img
                   loading="lazy"
-                  srcSet="assets\image2.png"
+                  srcSet="public\assets\image2.png"
                   className="object-cover absolute inset-0 size-full"
                 />
                 <div className="relative justify-center px-2.5 py-1.5 mb-28 bg-white rounded-md aspect-[1.91] max-md:mb-10">
@@ -280,7 +280,7 @@ function Homepage(props) {
           <div className="flex flex-col w-[61%] max-md:ml-0 max-md:w-full">
             <img
               loading="lazy"
-              srcSet="assets\banner.png"
+              srcSet="public\assets\banner.png"
               className="grow mt-0 w-full aspect-[1.79] max-md:max-w-full"
             />
           </div>
@@ -307,7 +307,7 @@ function Homepage(props) {
         </div>
         <img
           loading="lazy"
-          srcSet="assets\clients.png"
+          srcSet="public\assets\clients.png"
           className="mt-14 w-full aspect-[6.25] max-md:mt-10 max-md:max-w-full"
         />
         {/* Trending */}
@@ -321,7 +321,7 @@ function Homepage(props) {
                 <div className="flex overflow-hidden relative flex-col gap-5 justify-between items-end px-7 py-11 w-full font-medium text-center whitespace-nowrap rounded-xl aspect-[1.17] max-md:px-5">
                   <img
                     loading="lazy"
-                    srcSet="assets\card-image.png"
+                    srcSet="public\assets\card-image.png"
                     className="object-cover absolute inset-0 size-full"
                   />
                   {/* <div className="flex relative gap-0 justify-center px-5 py-2 mt-52 text-base text-black bg-white rounded-3xl max-md:mt-10">
@@ -358,7 +358,7 @@ function Homepage(props) {
                 <div className="flex overflow-hidden relative flex-col gap-5 justify-between items-end px-7 py-11 w-full font-medium text-center whitespace-nowrap rounded-xl aspect-[1.17] max-md:px-5">
                   <img
                     loading="lazy"
-                    srcSet="assets\card-image-2.png"
+                    srcSet="public\assets\card-image-2.png"
                     className="object-cover absolute inset-0 size-full"
                   />
                   {/* <div className="flex relative gap-0 justify-center px-5 py-2 mt-52 text-base text-black bg-white rounded-3xl max-md:mt-10">
@@ -395,7 +395,7 @@ function Homepage(props) {
                 <div className="flex overflow-hidden relative flex-col gap-5 justify-between items-end px-7 py-11 w-full font-medium text-center whitespace-nowrap rounded-xl aspect-[1.17] max-md:px-5">
                   <img
                     loading="lazy"
-                    srcSet="assets\card-image-3.png"
+                    srcSet="public\assets\card-image-3.png"
                     className="object-cover absolute inset-0 size-full"
                   />
                   {/* <div className="flex relative gap-0 justify-center px-5 py-2 mt-52 text-base text-black bg-white rounded-3xl max-md:mt-10">
