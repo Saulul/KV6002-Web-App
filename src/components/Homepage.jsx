@@ -5,7 +5,7 @@ function Homepage(props) {
     <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
       <div className="flex gap-5 justify-between px-5 w-full max-w-[1200px] max-md:flex-wrap max-md:max-w-full">
         <div className="flex-auto text-4xl font-bold text-zinc-500">
-          Event<span className="text-zinc-500"> Hive</span>
+          Event<span className="text-zinc-500"> Hive Elliot</span>
         </div>
         <div className="flex gap-5 justify-between text-base whitespace-nowrap">
           <div className="my-auto text-neutral-900">Login</div>

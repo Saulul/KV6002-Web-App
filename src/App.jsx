@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Map from "./components/Map.jsx";
 import Homepage from "./components/Homepage.jsx";
 import Notifications from "./components/Notifications.jsx";
+import EventsPage from "./components/EventsPage.jsx";
+
 import "./index.css";
 
 export default function App() {
@@ -12,6 +14,7 @@ export default function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/map" element={<Map />} />
         <Route path="/notifications" element={<Notifications />} />
+        {/* <Route path="/events" element={<EventsPage />} /> */}
       </Routes>
     </BrowserRouter>
   )
