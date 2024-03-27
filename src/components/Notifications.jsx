@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import BookingConfirmationEmail from './BookingConfirmationEmail';
-import BookingCancellationEmail from './BookingCancellationEmail';
+import BookingConfirmationEmail from './emailTemplates/BookingConfirmationEmail'; // Adjusted import path
+import BookingCancellationEmail from './emailTemplates/BookingCancellationEmail'; // Adjusted import path
 
 const Notifications = () => {
   const sendBookingConfirmationEmail = async () => {
