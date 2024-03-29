@@ -2,21 +2,19 @@
 import React from "react";
 
 const EventCard = ({ imageSrc, title, date, location }) => (
-  <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-    <div className="flex flex-col grow p-5 w-full text-xs bg-white rounded-xl shadow text-zinc-500 max-md:mt-5">
-      <div className="flex overflow-hidden relative flex-col items-start pt-2.5 pr-16 pb-12 pl-2.5 text-xs text-center whitespace-nowrap aspect-[1.45] max-md:pr-5">
+  <div className="p-4 md:w-1/3">
+    <div className="flex flex-col h-full p-5 bg-white rounded-xl shadow text-zinc-500">
+      <div className="relative w-full h-64 mb-4">
         <img
           loading="lazy"
-          srcSet={imageSrc}
-          className="object-cover absolute inset-0 size-full"
+          src={imageSrc}
+          alt="Event"
+          className="object-cover w-full h-full rounded-t-xl"
         />
-        <div className="relative justify-center px-2.5 py-1.5 mb-28 bg-white rounded-md aspect-[1.91] max-md:mb-10">
-          FREE
-        </div>
       </div>
-      <div className="mt-5 text-base text-black">{title}</div>
-      <div className="mt-6 whitespace-nowrap">{date}</div>
-      <div className="mt-7 whitespace-nowrap text-zinc-500">{location}</div>
+      <div className="text-lg font-semibold text-black">{title}</div>
+      <div className="mt-2 text-neutral-600">{date}</div>
+      <div className="mt-1 text-zinc-500">{location}</div>
     </div>
   </div>
 );

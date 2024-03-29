@@ -12,21 +12,21 @@ const SearchFilter = ({ title, placeholder, iconSrc }) => (
 );
 
 const SearchFilters = () => (
-  <div className="flex gap-5 justify-between px-16 py-9 mt-0 w-full rounded-3xl bg-neutral-900 max-w-[1200px] max-md:flex-wrap max-md:px-5 max-md:max-w-full">
+  <div className="flex gap-5 justify-between px-16 py-9 mt-3 w-full rounded-3xl bg-neutral-900 max-w-[1200px] max-md:flex-wrap max-md:px-5 max-md:max-w-full">
     <SearchFilter
       title="Looking for"
       placeholder="Choose event type"
-      iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/29daab012856cffe2a967a319fefa174a60e1d0e95387dd4065aef9a30563732?"
+      iconSrc="public/assets/filterbtn.svg"
     />
     <SearchFilter
       title="Location"
       placeholder="Choose location"
-      iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/29daab012856cffe2a967a319fefa174a60e1d0e95387dd4065aef9a30563732?"
+      iconSrc="public/assets/filterbtn.svg"
     />
     <SearchFilter
       title="When"
       placeholder="Choose date and time"
-      iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/29daab012856cffe2a967a319fefa174a60e1d0e95387dd4065aef9a30563732?"
+      iconSrc="public/assets/filterbtn.svg"
     />
     {/* The search button or another element can be added here */}
   </div>

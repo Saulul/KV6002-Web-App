@@ -1,4 +1,6 @@
 // ButtonPanel.jsx
+// UNUSED
+
 import React from "react";
 
 const ButtonPanel = ({ buttons }) => (
