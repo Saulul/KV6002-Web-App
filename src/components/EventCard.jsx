@@ -1,7 +1,7 @@
 // EventCard.jsx
 import React from "react";
 
-const EventCard = ({ imageSrc, title, date, location }) => (
+const EventCard = ({ imageSrc, category, title, date, venueName, venueCity }) => (
   <div className="p-4 md:w-1/3">
     <div className="flex flex-col h-full p-5 bg-white rounded-xl shadow text-zinc-500">
       <div className="relative w-full h-64 mb-4">
@@ -13,8 +13,9 @@ const EventCard = ({ imageSrc, title, date, location }) => (
         />
       </div>
       <div className="text-lg font-semibold text-black">{title}</div>
-      <div className="mt-2 text-neutral-600">{date}</div>
-      <div className="mt-1 text-zinc-500">{location}</div>
+      <div className="mt-1 font-medium text-neutral-600">{category}</div>
+      <div className="mt-1 text-neutral-600">{date}</div>
+            <div className="mt-1 text-zinc-500">{venueName},<br />{venueCity}</div>
     </div>
   </div>
 );

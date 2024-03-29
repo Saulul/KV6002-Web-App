@@ -10,6 +10,15 @@ import Footer from "./Footer";
 function Homepage(props) {
   const [events, setEvents] = useState([]);
 
+  const formatDateString = (dateString) =>
+    new Intl.DateTimeFormat("en-US", {
+      day: "numeric",
+      month: "long",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false, // Change to true if you prefer AM/PM
+    }).format(new Date(dateString));
+
   // Function to fetch event data
   const fetchEvents = async () => {
     const response = await fetch(
@@ -25,7 +34,8 @@ function Homepage(props) {
         id: item.id,
         title: attributes.title,
         description: attributes.description,
-        date: attributes.date,
+        category: attributes.categories?.data[0]?.attributes?.name,
+        date: formatDateString(attributes.date),
         price: attributes.price,
         venueName: attributes.venue?.data?.attributes?.name,
         venueCity: attributes.venue?.data?.attributes?.city,
@@ -62,7 +72,7 @@ function Homepage(props) {
         ))}
       </div>
 
-      <LoadMoreButton onClick={() => console.log("Load more...")} />
+      <LoadMoreButton onClick={() => console.log("View more...")} />
       <Footer />
     </div>
   );
