@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Map from "./components/Map.jsx";
 import Homepage from "./components/Homepage.jsx";
 import Notifications from "./components/Notifications.jsx";
-import EventsPage from "./components/EventsPage.jsx";
+// import EventsPage from "./components/EventsPage.jsx";
 
 import "./index.css";
 
