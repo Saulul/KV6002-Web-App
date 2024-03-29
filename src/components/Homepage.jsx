@@ -6,11 +6,12 @@ import EventCard from "./EventCard";
 import LoadMoreButton from "./LoadMoreButton";
 import WideBanner from "./WideBanner";
 import Footer from "./Footer";
+import UserRegister from "./UserRegister";
 
 function Homepage(props) {
   const [events, setEvents] = useState([]);
 
-
+  // Function to format date string
   const formatDateString = (dateString) =>
     new Intl.DateTimeFormat("en-US", {
       day: "numeric",
@@ -42,8 +43,7 @@ function Homepage(props) {
         venueCity: attributes.venue?.data?.attributes?.city,
         imageSrc: attributes.multimedia?.data[0]?.attributes?.url
           ? `https://eventhive.creeknet.xyz${attributes.multimedia.data[0].attributes.url}`
-          : "defaultImagePathHere", // Provide a default path or handle it in your component
-        // Add other details you need in a similar manner
+          : "defaultImagePathHere",
       };
     });
 
@@ -53,18 +53,14 @@ function Homepage(props) {
   // Fetch events on component mount
   useEffect(() => {
     fetchEvents();
-  }, []); // The empty array means this effect runs once on mount
+  }, []);
 
-  // const buttonPanelData = [
-  //   { imageSrc: "/assets/Button.png" },
-  //   // Add more button data as needed
-  // ];
   return (
     <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
+      {/* <UserRegister /> */}
       <Header />
       <Banner />
       <SearchFilters />
-
 
       <div className="flex flex-wrap justify-center max-w-6xl mx-auto">
         {events.map((event, index) => (
