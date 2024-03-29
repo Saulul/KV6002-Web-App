@@ -51,7 +51,7 @@ const MapComponent = () => {
 
   useEffect(() => {
     mapboxgl.accessToken =
-      "pk.eyJ1Ijoic3RlZmFuazc3NyIsImEiOiJjbHN0Z2xpeGIxcnNxMmpwczhjNGNzbm5sIn0.9K8UicMtbutDLrXWgxiF7A";
+        import.meta.env.VITE_MAPBOX_API_KEY;
     const map = new mapboxgl.Map({
       container: "map-container",
       style: "mapbox://styles/mapbox/streets-v12",
