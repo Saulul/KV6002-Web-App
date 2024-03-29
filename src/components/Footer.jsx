@@ -5,7 +5,7 @@ const Footer = () => (
   <div className="flex flex-col self-stretch px-16 pt-10 pb-6 mt-32 w-full bg-neutral-900 max-md:px-5 max-md:mt-10 max-md:max-w-full">
     <div className="flex flex-col items-end self-center max-w-full w-[648px]">
       <div className="self-stretch text-4xl font-bold text-center text-zinc-500 max-md:max-w-full">
-        <span className="text-gray-50">Event</span>{" "}
+        <span className="text-gray-50">Event</span>
         <span className="text-zinc-500">Hive</span>
       </div>
       <div className="flex gap-2.5 justify-center mt-7 mr-5 max-w-full whitespace-nowrap w-[450px] max-md:flex-wrap max-md:mr-2.5">
@@ -52,7 +52,7 @@ const Footer = () => (
           />
         </div>
         <div className="flex-auto self-start mt-3 text-base text-right text-white">
-          Non Copyrighted © 2023 Upload by KV6002
+          EventHive © 2023 Upload by KV6002
           <br />
         </div>
       </div>
