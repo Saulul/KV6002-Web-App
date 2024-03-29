@@ -26,13 +26,13 @@ const Footer = () => (
     </div>
     <div className="shrink-0 mt-7 h-px bg-white max-md:max-w-full" />
     <div className="flex gap-5 justify-between mt-6 w-full max-md:flex-wrap max-md:max-w-full">
-      <div className="flex gap-2.5 items-center text-xs text-center text-white whitespace-nowrap">
+      {/* <div className="flex gap-2.5 items-center text-xs text-center text-white whitespace-nowrap">
         <div className="justify-center self-stretch px-5 py-2.5 rounded-md aspect-[2.26] bg-zinc-500">
           English
         </div>
         <div className="self-stretch my-auto">French</div>
         <div className="self-stretch my-auto">Hindi</div>
-      </div>
+      </div> */}
       <div className="flex gap-5 justify-between max-md:flex-wrap max-md:max-w-full">
         <div className="flex gap-4 justify-center px-px">
           <img
