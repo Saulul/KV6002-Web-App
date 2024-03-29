@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Banner from "./Banner";
-import ButtonPanel from "./ButtonPanel";
 import SearchFilters from "./SearchFilters";
 import EventCard from "./EventCard";
 import LoadMoreButton from "./LoadMoreButton";
@@ -10,6 +9,7 @@ import Footer from "./Footer";
 
 function Homepage(props) {
   const [events, setEvents] = useState([]);
+
 
   const formatDateString = (dateString) =>
     new Intl.DateTimeFormat("en-US", {
@@ -63,8 +63,8 @@ function Homepage(props) {
     <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
       <Header />
       <Banner />
-      {/* <ButtonPanel buttons={buttonPanelData} /> */}
       <SearchFilters />
+
 
       <div className="flex flex-wrap justify-center max-w-6xl mx-auto">
         {events.map((event, index) => (
