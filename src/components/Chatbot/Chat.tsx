@@ -19,7 +19,7 @@ const Chat: React.FC = () => {
     useEffect(() => {
         setMessages([
             {
-                content: "Hi, I'm your personal assistant. How can I help you?",
+                content: "Hi there! Welcome to Eventhive. I'm your AI-powered personal assistant. How can I help you today?",
                 isUser: false,
             },
         ]);
@@ -122,9 +122,9 @@ const Chat: React.FC = () => {
 
             {/* Conditional rendering of chat window */}
             {isChatOpen && (
-                <div className="bg-white rounded-lg p-2 shadow-lg w-80 h-96 overflow-auto">
+                <div className="bg-white rounded-lg p-2 shadow-lg w-96 h-[50vh] overflow-auto">
                     <Container>
-                        <Grid container direction="column" spacing={2} paddingBottom={5}>
+                    <Grid container direction="column" spacing={2} paddingBottom={5}>
                             {messages.map((message, index) => (
                                 <Grid item alignSelf={message.isUser ? "flex-end" : "flex-start"} key={index}>
                                     <Message key={index} message={message}/>
