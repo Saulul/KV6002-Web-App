@@ -1,15 +1,27 @@
 import React from 'react';
+import { MessageDto } from "../../models/MessageDto";
 
 interface MessageProps {
-    text: string;
-    isUser: boolean;
+    message: MessageDto;
 }
 
-const Message: React.FC<MessageProps> = ({ text, isUser }) => {
+const Message: React.FC<MessageProps> = ({ message }) => {
     return (
-        <div style={{ textAlign: isUser ? 'right' : 'left', margin: '8px' }}>
-            <div style={{ backgroundColor: isUser ? '#DCF8C6' : '#b8e3fc', padding: '8px', borderRadius: '8px' }}>
-                {text}
+        <div style={{ textAlign: message.isUser ? "right" : "left", margin: "8px" }}>
+            <div
+                style={{
+                    color: message.isUser ? "#ffffff" : "#000000",
+                    backgroundColor: message.isUser ? "#1186fe" : "#eaeaea",
+                    padding: "15px",
+                    borderRadius: "8px",
+                }}
+            >
+                {message.content.split("\n").map((text, index) => (
+                    <React.Fragment key={index}>
+                        {text}
+                        <br />
+                    </React.Fragment>
+                ))}
             </div>
         </div>
     );

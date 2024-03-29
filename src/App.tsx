@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import OpenAI from "openai";
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Map from "./components/Map";
