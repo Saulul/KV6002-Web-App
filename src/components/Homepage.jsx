@@ -5,6 +5,7 @@ import ButtonPanel from "./ButtonPanel";
 import SearchFilters from "./SearchFilters";
 import EventCard from "./EventCard";
 import LoadMoreButton from "./LoadMoreButton";
+import WideBanner from "./WideBanner";
 import Footer from "./Footer";
 
 function Homepage(props) {
@@ -58,7 +59,6 @@ function Homepage(props) {
   //   { imageSrc: "/assets/Button.png" },
   //   // Add more button data as needed
   // ];
-  console.log(events);
   return (
     <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
       <Header />
@@ -73,6 +73,7 @@ function Homepage(props) {
       </div>
 
       <LoadMoreButton onClick={() => console.log("View more...")} />
+      <WideBanner />
       <Footer />
     </div>
   );
