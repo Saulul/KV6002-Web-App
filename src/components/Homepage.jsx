@@ -58,10 +58,6 @@ function Homepage(props) {
         fetchEvents();
     }, []); // The empty array means this effect runs once on mount
 
-    // const buttonPanelData = [
-    //   { imageSrc: "/assets/Button.png" },
-    //   // Add more button data as needed
-    // ];
     return (
         <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
             <Header/>
