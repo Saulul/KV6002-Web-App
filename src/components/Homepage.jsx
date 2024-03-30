@@ -63,7 +63,8 @@ function Homepage(props) {
       <SearchFilters />
 
       <div className="flex flex-wrap justify-center max-w-6xl mx-auto">
-        {events.map((event, index) => (
+        {/* Iterate events - limit to maximum of 9 */}
+        {events.slice(0, 9).map((event, index) => (
           <EventCard key={index} {...event} />
         ))}
       </div>

@@ -60,7 +60,7 @@ export default function UserRegister() {
           <div className="flex-auto text-4xl font-bold text-zinc-400 mb-4">
             Event<span className="text-zinc-500">Hive</span>
           </div>
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "#1976d2" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
