@@ -6,6 +6,7 @@ import EventCard from "./EventCard";
 import LoadMoreButton from "./LoadMoreButton";
 import WideBanner from "./WideBanner";
 import Footer from "./Footer";
+import {Grid} from "@mui/material";
 
 function Homepage(props) {
     const [events, setEvents] = useState([]);
@@ -37,7 +38,8 @@ function Homepage(props) {
                 description: attributes.description,
                 category: attributes.categories?.data[0]?.attributes?.name,
                 date: formatDateString(attributes.date),
-                endDatetime: formatDateString(attributes.endDatetime),
+                startDatetime: attributes.date,
+                endDatetime: attributes.endDatetime,
                 price: attributes.price,
                 venueName: attributes.venue?.data?.attributes?.name,
                 venueCity: attributes.venue?.data?.attributes?.city,
@@ -67,11 +69,11 @@ function Homepage(props) {
             <SearchFilters/>
 
 
-            <div className="flex flex-wrap justify-center max-w-6xl mx-auto">
+            <Grid container spacing={2} alignItems="stretch" sx={{pr: 2, pl:2}}>
                 {events.map((event, index) => (
                     <EventCard key={index} {...event} />
                 ))}
-            </div>
+            </Grid>
 
             <LoadMoreButton onClick={() => console.log("View more...")}/>
             <WideBanner/>
