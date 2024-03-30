@@ -27,6 +27,7 @@
     "@mui/lab": "^5.0.0-alpha.169",
     "@mui/material": "^5.15.14",
     "@mui/x-date-pickers": "^7.1.0",
+    "add-to-calendar-button-react": "file:./libs/add-to-calendar-button-react",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
     "date-fns": "^2.30.0",

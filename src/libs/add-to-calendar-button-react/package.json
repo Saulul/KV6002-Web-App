@@ -1,0 +1,97 @@
+{
+  "name": "add-to-calendar-button-react",
+  "version": "2.6.9",
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=9.6.7"
+  },
+  "description": "Convenient React wrapper for the add to calendar button snippet, which lets you reliably create beautiful buttons, where people can add events to their calendars.",
+  "type": "module",
+  "files": [
+    "distro"
+  ],
+  "main": "./distro/atcb.umd.cjs",
+  "module": "./distro/atcb.js",
+  "types": "./distro/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./distro/index.d.ts",
+      "import": "./distro/atcb.js",
+      "require": "./distro/atcb.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/add2cal/add-to-calendar-button-react.git"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "css",
+    "microsoft",
+    "apple",
+    "google",
+    "widget",
+    "generator",
+    "component",
+    "calendar",
+    "event",
+    "free",
+    "snippet",
+    "outlook",
+    "add-to-calendar",
+    "add-to-calendar-button",
+    "add-event"
+  ],
+  "author": {
+    "name": "Jens Kuerschner",
+    "url": "https://jenskuerschner.de/"
+  },
+  "license": "ELv2",
+  "bugs": {
+    "url": "https://github.com/add2cal/add-to-calendar-button/issues"
+  },
+  "homepage": "https://add-to-calendar-button.com/",
+  "scripts": {
+    "eslint": "npx eslint .",
+    "eslint:fix": "npm run eslint -- --fix",
+    "prettier": "npx prettier . --check",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "npm run eslint:fix && npm run prettier:fix",
+    "dev": "vite",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^14.2.2",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-commonjs": "^1.0.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-security": "^2.1.1",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.4.2",
+    "vite": "^5.2.2",
+    "vitest": "^1.4.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "add-to-calendar-button": "^2.6.9"
+  }
+}
