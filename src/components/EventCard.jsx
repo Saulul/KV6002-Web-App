@@ -36,16 +36,16 @@ const EventCard = ({imageSrc, category, title, date, startDatetime, endDatetime,
                 style={{borderTopLeftRadius: '4px', borderTopRightRadius: '4px'}}
             />
                 <CardContent>
-                    <Typography variant="h5" component="div">
+                    <Typography variant="h5" component="div" style={{fontWeight: 'bold', marginBottom: '10px'}}>
                         {title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" style={{marginBottom: '10px'}}>
                         {category}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" style={{marginBottom: '10px'}}>
                         {date}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" style={{marginBottom: '10px'}}>
                         {venueName},<br/>{venueCity}
                     </Typography>
                     <AddToCalendarButton
