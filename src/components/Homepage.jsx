@@ -11,14 +11,13 @@ import {Grid} from "@mui/material";
 function Homepage(props) {
     const [events, setEvents] = useState([]);
 
-
     const formatDateString = (dateString) =>
         new Intl.DateTimeFormat("en-US", {
             day: "numeric",
             month: "long",
             hour: "2-digit",
             minute: "2-digit",
-            hour12: false, // Change to true if you prefer AM/PM
+            hour12: false,
         }).format(new Date(dateString));
 
     // Function to fetch event data
@@ -45,23 +44,16 @@ function Homepage(props) {
                 venueCity: attributes.venue?.data?.attributes?.city,
                 imageSrc: attributes.multimedia?.data[0]?.attributes?.url
                     ? `https://eventhive.creeknet.xyz${attributes.multimedia.data[0].attributes.url}`
-                    : "defaultImagePathHere", // Provide a default path or handle it in your component
-                // Add other details you need in a similar manner
+                    : "defaultImagePathHere",
             };
         });
 
         setEvents(events);
     };
-
-    // Fetch events on component mount
     useEffect(() => {
         fetchEvents();
-    }, []); // The empty array means this effect runs once on mount
+    }, []);
 
-    // const buttonPanelData = [
-    //   { imageSrc: "/assets/Button.png" },
-    //   // Add more button data as needed
-    // ];
     return (
         <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
             <Header/>
