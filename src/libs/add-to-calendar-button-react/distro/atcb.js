@@ -2387,7 +2387,7 @@ function ut(e, t, a = "all", o = !1) {
     return t.attendee && t.attendee !== "" && m !== "" || t.customVar && t.customVar !== "" && d !== "" ? "" : a != "all" && t.dates[`${a}`].icsFile != null && t.dates[`${a}`].icsFile != "" ? t.dates[`${a}`].icsFile : t.icsFile != null && t.icsFile != "" ? t.icsFile : "";
   }();
   if (t.proxy) {
-    O(t, "ical", "https://add-to-calendar-pro.com", !1, a);
+    O(t, "ical", "https://kv-6002-web-app.vercel.app", !1, a);
     return;
   }
   if (l !== "" && (!D() || !Te() || t.bypassWebViewCheck)) {
@@ -2395,7 +2395,7 @@ function ut(e, t, a = "all", o = !1) {
     return;
   }
   const c = /* @__PURE__ */ new Date(), r = ["BEGIN:VCALENDAR", "VERSION:2.0"];
-  r.push("PRODID:-// https://add-to-calendar-pro.com // button v" + et + " //EN"), r.push("CALSCALE:GREGORIAN"), a == "all" ? r.push("METHOD:PUBLISH") : t.dates[`${a}`].status != null && t.dates[`${a}`].status == "CANCELLED" ? r.push("METHOD:CANCEL") : t.dates[`${a}`].organizer != null && t.dates[`${a}`].organizer != "" ? r.push("METHOD:REQUEST") : r.push("METHOD:PUBLISH");
+  r.push("PRODID:-// https://kv-6002-web-app.vercel.app // button v" + et + " //EN"), r.push("CALSCALE:GREGORIAN"), a == "all" ? r.push("METHOD:PUBLISH") : t.dates[`${a}`].status != null && t.dates[`${a}`].status == "CANCELLED" ? r.push("METHOD:CANCEL") : t.dates[`${a}`].organizer != null && t.dates[`${a}`].organizer != "" ? r.push("METHOD:REQUEST") : r.push("METHOD:PUBLISH");
   const i = [], s = function() {
     return a != "all" ? a : 0;
   }(), b = function() {
@@ -3887,15 +3887,15 @@ function xt(e) {
   z[e.identifier] = t;
 }
 function yt(e = "", t = !1) {
-  if (!Le) {
-    const a = function() {
-      return t ? " (version " + et + ")" : "";
-    }();
-    e != "" ? console.log("Add to Calendar PRO script initialized" + a + " | https://add-to-calendar-pro.com") : (console.log(`%c
-Add to Calendar Button script initialized` + a + `
-see https://add-to-calendar-button.com for details.
-`, "font-weight: bold;"), console.log("✨ %cPRO version available at https://add-to-calendar-pro.com ← check it out!", "font-weight: bold; line-height: 60px;")), Le = !0;
-  }
+//   if (!Le) {
+//     const a = function() {
+//       return t ? " (version " + et + ")" : "";
+//     }();
+//     e != "" ? console.log("Add to Calendar PRO script initialized" + a + " | https://add-to-calendar-pro.com") : (console.log(`%c
+// Add to Calendar Button script initialized` + a + `
+// see https://add-to-calendar-button.com for details.
+// `, "font-weight: bold;"), console.log("✨ %cPRO version available at https://add-to-calendar-pro.com ← check it out!", "font-weight: bold; line-height: 60px;")), Le = !0;
+//   }
 }
 async function J(e, t = null, a = {}) {
   /*!
