@@ -4,6 +4,7 @@ import Map from "./components/Map.jsx";
 import Homepage from "./components/Homepage.jsx";
 import Notifications from "./components/Notifications.jsx";
 // import EventsPage from "./components/EventsPage.jsx";
+import AnalyticsDashboard from './components/AnalyticsDashboard';
 
 import "./index.css";
 
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/notifications" element={<Notifications />} />
         {/* <Route path="/events" element={<EventsPage />} /> */}
+        <Route path="/analytics" element={<AnalyticsDashboard />} />
       </Routes>
     </BrowserRouter>
   )
