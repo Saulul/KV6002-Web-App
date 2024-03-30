@@ -2,8 +2,17 @@
 // Header component, aware of the user's authentication status.
 
 import React, { useState, useEffect } from "react";
-import { Button, Menu, MenuItem } from "@mui/material";
+import {
+  Button,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  Typography,
+} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const API_URL = "https://eventhive.creeknet.xyz/api";
 
@@ -71,7 +80,8 @@ const Header = () => {
               variant="text"
               color="primary"
               onClick={handleClick}
-              sx={{ textTransform: "none" }}
+              sx={{ textTransform: "none", fontWeight: "bold" }}
+              startIcon={<AccountCircleIcon />}
             >
               {userFirstName || "Profile"}
             </Button>
@@ -89,7 +99,10 @@ const Header = () => {
                   handleClose();
                 }}
               >
-                Events
+                <ListItemIcon>
+                  <FavoriteIcon fontSize="small" />
+                </ListItemIcon>
+                <Typography variant="inherit">My Events</Typography>
               </MenuItem>
               <MenuItem
                 onClick={() => {
@@ -97,12 +110,16 @@ const Header = () => {
                   handleClose();
                 }}
               >
-                Tickets
+                <ListItemIcon>
+                  <ConfirmationNumberIcon fontSize="small" />
+                </ListItemIcon>
+                <Typography variant="inherit">My Tickets</Typography>
               </MenuItem>
             </Menu>
             <Button
               variant="contained"
               color="secondary"
+              sx={{ backgroundColor: "#b44646", color: "white" }}
               onClick={handleLogout}
             >
               Sign Out
@@ -116,7 +133,11 @@ const Header = () => {
               </Button>
             </Link>
             <Link to="/register">
-              <Button variant="contained" color="secondary">
+              <Button
+                variant="contained"
+                sx={{ backgroundColor: "grey", color: "white" }}
+                onClick={handleLogout}
+              >
                 Signup
               </Button>
             </Link>
