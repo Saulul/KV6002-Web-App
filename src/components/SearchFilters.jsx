@@ -3,12 +3,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import SearchIcon from "@mui/icons-material/Search";
 import SearchTextBox from "./SearchTextBox";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import Box from "@mui/material/Box";
+import {Grid} from "@mui/material";
 
 export default function BasicSelect() {
     const [lookingFor, setLookingFor] = React.useState("");
@@ -24,9 +23,8 @@ export default function BasicSelect() {
     };
 
     return (
-        <div
-            className="flex gap-5 justify-between px-16 py-9 mt-3 rounded-3x max-w-[1200px] max-md:flex-wrap max-md:px-5 max-md:max-w-full">
-            <Box sx={{minWidth: 140}}>
+        <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center" sx={{ mt: 2, mb: 2, pr: 2, pl:2}}>
+            <Grid item xs={12} sm={3} xl={2}>
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Looking for</InputLabel>
                     <Select
@@ -41,8 +39,8 @@ export default function BasicSelect() {
                         <MenuItem value={30}>Theatre</MenuItem>
                     </Select>
                 </FormControl>
-            </Box>
-            <Box sx={{minWidth: 120}}>
+            </Grid>
+            <Grid item xs={12} sm={3} xl={2}>
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Where</InputLabel>
                     <Select
@@ -57,8 +55,8 @@ export default function BasicSelect() {
                         <MenuItem value={30}>Middlesbrough</MenuItem>
                     </Select>
                 </FormControl>
-            </Box>
-            <Box sx={{ minWidth: 140 }}>
+            </Grid>
+            <Grid item xs={12} sm={3} xl={2}>
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label"></InputLabel>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -69,20 +67,10 @@ export default function BasicSelect() {
                         />
                     </LocalizationProvider>
                 </FormControl>
-            </Box>
-            <SearchTextBox/>
-            <Box
-                sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    bgcolor: "#71717a",
-                    color: "white",
-                    p: 1,
-                    borderRadius: 1,
-                }}
-            >
-                <SearchIcon/>
-            </Box>
-        </div>
+            </Grid>
+            <Grid item xs={12} sm={3} xl={2}>
+                <SearchTextBox/>
+            </Grid>
+        </Grid>
     );
 }
