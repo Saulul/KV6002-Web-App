@@ -97,7 +97,7 @@ const Header = () => {
                   handleClose();
                 }}
               >
-                Tickets
+                My Tickets
               </MenuItem>
             </Menu>
             <Button
@@ -116,7 +116,11 @@ const Header = () => {
               </Button>
             </Link>
             <Link to="/register">
-              <Button variant="contained" color="secondary">
+              <Button
+                variant="contained"
+                sx={{ backgroundColor: "grey", color: "white" }}
+                onClick={handleLogout}
+              >
                 Signup
               </Button>
             </Link>
