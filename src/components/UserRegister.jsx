@@ -1,3 +1,6 @@
+// UserRegister.jsx (W20017851 - auth)
+// Provides user sign up functiuonality.
+
 import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -50,7 +53,7 @@ export default function UserRegister() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const userData = {
-      username: data.get("email"), // This is just a placeholder, adjust as needed
+      username: data.get("email"),
       email: data.get("email"),
       password: data.get("password"),
       profileType: data.get("position"),
@@ -194,8 +197,8 @@ export default function UserRegister() {
             </Box>
           ) : (
             <>
-              <Typography variant="h6" sx={{ mt: 3, mb: 2 }}>
-                Thank you {userDetails.firstName} {userDetails.lastName},
+              <Typography variant="h6" sx={{ mt: 3, mb: 2 }} align="center">
+                Thank you for registering, <b>{userDetails.firstName} {userDetails.lastName}</b>,
                 welcome to EventHive!
               </Typography>
               <Button
