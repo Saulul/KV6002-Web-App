@@ -15,6 +15,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+const API_URL = "https://eventhive.creeknet.xyz/api";
+
 function Copyright(props) {
   return (
     <Typography
