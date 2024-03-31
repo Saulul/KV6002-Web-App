@@ -27,7 +27,7 @@ const App: FC = () => {
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/register" element={<UserRegister />} />
           <Route path="/login" element={<UserLogin />} />
-          <Route path="*" element={<ProfilePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
         </BrowserRouter>
       </div>

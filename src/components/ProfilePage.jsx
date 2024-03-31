@@ -1,39 +1,88 @@
+// ProfilePage.jsx (W20017851)
+// Provides user profile information and logout functionality.
+// This is a future feature, not in the initial work plan.
+
 import React from "react";
 import { useUser } from "./UserContext";
-import { Container, Typography, Button } from "@mui/material";
+import { Container, Typography, Grid, Paper, Button } from "@mui/material";
+import Header from "./Header";
+import WideBanner from "./WideBanner";
+import Banner from "./Banner";
+import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 function ProfilePage() {
-  const { user, logout } = useUser();
+    const { user, logout } = useUser();
 
-  if (!user) {
+    if (!user) {
+        return (
+            <div className="flex flex-col items-center justify-center h-screen">
+                <Typography variant="h5">You are not logged in</Typography>
+                <Link to="/login">
+                    <Button variant="contained" color="primary">
+                        Login
+                    </Button>
+                </Link>
+            </div>
+        );
+    }
+
     return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <Typography variant="h5">You are not logged in</Typography>
-        {/* Consider adding a link or button to navigate to the login page here */}
+      <div className="flex flex-col items-center bg-gray-50 rounded-3xl">
+        <Header />
+        <Banner text="Profile Settings" height="296" />
+        <Container
+          maxWidth={false}
+          sx={{ width: "100%", padding: "0 24px", marginTop: 4 }}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <Paper elevation={3} sx={{ padding: 2 }}>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  style={{ fontWeight: "bold" }}
+                >
+                  Profile Information:
+                </Typography>
+                <Typography>
+                  Name: {user.firstName} {user.lastName}
+                </Typography>
+                <Typography>Email: {user.email}</Typography>
+                <Typography>
+                  Profile Type:{" "}
+                  {user.profileType == "EventAttendee"
+                    ? "Event Attender"
+                    : "Event Organizer"}
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Paper elevation={3} sx={{ padding: 2 }}>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  style={{ fontWeight: "bold" }}
+                >
+                  Event Information:
+                </Typography>
+                <Typography>Tickets Purchased: TBD</Typography>
+                <Typography>Bookmarked Events: TBD</Typography>
+              </Paper>
+            </Grid>
+          </Grid>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ marginTop: 2 }}
+            onClick={logout}
+          >
+            Logout
+          </Button>
+        </Container>
+        <Footer />
       </div>
     );
-  }
-
-  return (
-    <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
-      <Container sx={{ mt: 4, mb: 4, textAlign: "center" }}>
-        <Typography variant="h4" sx={{ mb: 2 }}>
-          Profile Information
-        </Typography>
-        <Typography variant="h6">First Name: {user.firstName}</Typography>
-        {/* Add more user details here as needed */}
-
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{ mt: 3 }}
-          onClick={logout}
-        >
-          Logout
-        </Button>
-      </Container>
-    </div>
-  );
 }
 
 export default ProfilePage;
