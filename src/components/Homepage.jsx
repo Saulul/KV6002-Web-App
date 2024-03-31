@@ -6,10 +6,12 @@ import EventCard from "./EventCard";
 import LoadMoreButton from "./LoadMoreButton";
 import WideBanner from "./WideBanner";
 import Footer from "./Footer";
+import { useUser } from "./UserContext";
 import {Container, Grid} from "@mui/material";
 
 function Homepage(props) {
     const [events, setEvents] = useState([]);
+    const { user } = useUser();
 
     const formatDateString = (dateString) =>
         new Intl.DateTimeFormat("en-US", {
@@ -55,23 +57,28 @@ function Homepage(props) {
     }, []);
 
     return (
-        <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
-            <Header/>
-            <Banner/>
-            <SearchFilters/>
+      <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
+        <Header />
+        <Banner />
+        <SearchFilters />
 
-            <Container sx={{ '@media (min-width:1535px)': { maxWidth: '75%' } }}>
-                <Grid container spacing={2} alignItems="stretch" sx={{pr: 2, pl:2}}>
-                    {events.map((event, index) => (
-                        <EventCard key={index} {...event} />
-                    ))}
-                </Grid>
-            </Container>
+        <Container sx={{ "@media (min-width:1535px)": { maxWidth: "75%" } }}>
+          <Grid
+            container
+            spacing={2}
+            alignItems="stretch"
+            sx={{ pr: 2, pl: 2 }}
+          >
+            {events.map((event, index) => (
+              <EventCard key={index} {...event} isLoggedIn={!!user} />
+            ))}
+          </Grid>
+        </Container>
 
-            <LoadMoreButton onClick={() => console.log("View more...")}/>
-            <WideBanner/>
-            <Footer/>
-        </div>
+        <LoadMoreButton onClick={() => console.log("View more...")} />
+        <WideBanner />
+        <Footer />
+      </div>
     );
 }
 

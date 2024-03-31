@@ -9,19 +9,23 @@ import Notifications from "./components/Notifications";
 import Chat from "./components/Chatbot/Chat"; // Import the Chat component
 import UserRegister from "./components/UserRegister";
 import UserLogin from "./components/UserLogin";
+import { UserProvider } from "./components/UserContext";
+
 
 const App: FC = () => {
   return (
-    <BrowserRouter>
-      <Chat />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/map" element={<Map />} />
-        <Route path="/notifications" element={<Notifications />} />
-        <Route path="/register" element={<UserRegister />} />
-        <Route path="/login" element={<UserLogin />} />
-      </Routes>
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <Chat />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/map" element={<Map />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/register" element={<UserRegister />} />
+          <Route path="/login" element={<UserLogin />} />
+        </Routes>
+      </BrowserRouter>
+    </UserProvider>
   );
 };
 
