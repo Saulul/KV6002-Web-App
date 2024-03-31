@@ -21,7 +21,7 @@ const Banner = () => {
                 className="object-cover absolute inset-0 size-full"
                 alt={"banner"}/>
             <div
-                className="relative self-center mt-16 ml-14 text-6xl font-bold text-center text-white uppercase max-md:mt-10 max-md:max-w-full max-md:text-4xl"
+                className="flex justify-center items-center relative self-center mt-16 text-6xl font-bold text-center text-white uppercase max-md:mt-10 max-md:max-w-full max-md:text-4xl"
                 style={{
                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
                 }}>

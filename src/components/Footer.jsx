@@ -7,8 +7,9 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link"; // For navigation links
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const footerTheme = createTheme({
   palette: {
@@ -96,10 +97,13 @@ const Footer = () => (
                 <FacebookIcon color="primary" />
               </Link>
               <Link href="#" sx={{ mx: 1 }}>
-                <TwitterIcon color="primary" />
+                <XIcon color="primary" />
               </Link>
               <Link href="#" sx={{ mx: 1 }}>
                 <InstagramIcon color="primary" />
+              </Link>
+              <Link href="#" sx={{ mx: 1 }}>
+                <YouTubeIcon color="primary" />
               </Link>
             </Box>
           </Grid>
