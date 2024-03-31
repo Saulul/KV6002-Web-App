@@ -1,3 +1,6 @@
+// UserContext.jsx (W20017851 - auth)
+// Provides core user authentication functionality.
+
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const UserContext = createContext();
@@ -11,7 +14,7 @@ export const UserProvider = ({ children }) => {
     if (jwt) {
       try {
         const response = await fetch(
-          `https://eventhive.creeknet.xyz/api/users/me`,
+          `https://eventhive.creeknet.xyz/api/users/me?populate=*`,
           {
             method: "GET",
             headers: {
@@ -20,8 +23,9 @@ export const UserProvider = ({ children }) => {
           }
         );
         const userData = await response.json();
+        
         if (response.ok) {
-          setUser({ firstName: userData.firstName });
+          setUser({ jwt: jwt, firstName: userData.firstName, lastName: userData.lastName, email: userData.email, id: userData.id, profileType: userData.profileType });
         } else {
           console.error("Failed to fetch user data");
         }

@@ -12,7 +12,7 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
 function ProfilePage() {
-    const { user, logout } = useUser();
+  const { user, logout } = useUser();
 
     if (!user) {
         return (
