@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-const sendEmail = async (to, subject, text, html) => {
+const sendEmail = async (data) => {
   try {
-    const response = await axios.post('https://apis-sk.vercel.app/api/send-email', to, subject, text, html);
-    // const response = await axios.post('http://localhost:5174/api/sendEmail', data); -- for testing
+    const response = await axios.post('https://apis-sk.vercel.app/api/send-email', data);
     console.log(response.data); // Log success message
     return response.data;
   } catch (error) {
