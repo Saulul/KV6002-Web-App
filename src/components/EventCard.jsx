@@ -44,9 +44,15 @@ const EventCard = ({
       setAlertSeverity("warning");
     } else {
       setIsFavourited(!isFavourited);
+      // Adjusting message and severity based on the favourite state
+      if (isFavourited) {
+        setAlertMessage("Event removed from favourites");
+        setAlertSeverity("info");
+      } else {
+        setAlertMessage("Added to favourites");
+        setAlertSeverity("success");
+      }
       setOpen(true);
-      setAlertMessage("Added to favourites");
-      setAlertSeverity("success");
     }
   };
 
@@ -138,7 +144,7 @@ const EventCard = ({
             onClick={toggleFavourite}
             style={{ marginTop: "10px" }}
           >
-            Add to favourites
+            {isFavourited ? "Remove from favourites" : "Add to favourites"}
           </Button>
         </CardContent>
       </Card>
