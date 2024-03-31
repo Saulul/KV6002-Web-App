@@ -7,7 +7,6 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Map from "./components/Map";
 import Homepage from "./components/Homepage";
-import Notifications from "./components/Notifications";
 import Chat from "./components/Chatbot/Chat"; // Import the Chat component
 import UserRegister from "./components/UserRegister";
 import UserLogin from "./components/UserLogin";
@@ -25,8 +24,6 @@ const App: FC = () => {
         <Route path="/" element={<Homepage />} />
         <Route path="/map" element={<Map />} />
         <Route path="/purchase/:eventId" element={<Purchase/>} />
-
-        <Route path="/notifications" element={<Notifications />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="*" element={<NoPage />} />
