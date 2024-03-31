@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 const AnalyticsDashboard = () => {
-  // State hooks to store the events and chart data
   const [events, setEvents] = useState([]);
   const [chartData, setChartData] = useState({});
 
@@ -12,16 +11,21 @@ const AnalyticsDashboard = () => {
       // Make an HTTP GET request to fetch events with their tickets populated
       const response = await fetch('https://eventhive.creeknet.xyz/api/events?populate=tickets');
       if (response.ok) {
-        // If the response is successful, parse the JSON and update the events state
-        const { data } = await response.json();
-        setEvents(data.map(event => {
-          return {
-            ...event.attributes,
-            id: event.id,
-            // Count the number of tickets related to each event
-            ticketCount: event.attributes.tickets.data.length,
-          };
-        }));
+        const jsonResponse = await response.json();
+        // Check if jsonResponse.data exists and is an array before calling .map
+        if (Array.isArray(jsonResponse.data)) {
+          setEvents(jsonResponse.data.map(event => {
+            return {
+              ...event.attributes,
+              id: event.id,
+              // Count the number of tickets related to each event
+              ticketCount: event.attributes.tickets.data.length,
+            };
+          }));
+        } else {
+          // If jsonResponse.data is not an array, handle accordingly
+          console.error('Unexpected response format:', jsonResponse);
+        }
       } else {
         // If the response is not successful, log the error status
         console.error('Failed to fetch events:', response.statusText);
