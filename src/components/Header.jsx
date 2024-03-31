@@ -13,6 +13,8 @@ import { Link, useNavigate } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Snackbar } from "@mui/material";
+import Alert from "@mui/material/Alert";
 
 const API_URL = "https://eventhive.creeknet.xyz/api";
 
@@ -20,6 +22,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [userFirstName, setUserFirstName] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const open = Boolean(anchorEl);
 
   const isLoggedIn = () => {
@@ -30,6 +33,7 @@ const Header = () => {
     localStorage.removeItem("jwt");
     setUserFirstName("");
     navigate("/");
+    setOpenSnackbar(true); // Show the Snackbar
   };
 
   const handleClick = (event) => {
@@ -38,6 +42,14 @@ const Header = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSnackbar(false);
   };
 
   useEffect(() => {
@@ -144,6 +156,20 @@ const Header = () => {
           </>
         )}
       </div>
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          You have been logged out successfully
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
