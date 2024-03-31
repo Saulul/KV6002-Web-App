@@ -6,7 +6,7 @@ import EventCard from "./EventCard";
 import LoadMoreButton from "./LoadMoreButton";
 import WideBanner from "./WideBanner";
 import Footer from "./Footer";
-import {Grid} from "@mui/material";
+import {Container, Grid} from "@mui/material";
 
 function Homepage(props) {
     const [events, setEvents] = useState([]);
@@ -60,12 +60,13 @@ function Homepage(props) {
             <Banner/>
             <SearchFilters/>
 
-
-            <Grid container spacing={2} alignItems="stretch" sx={{pr: 2, pl:2}}>
-                {events.map((event, index) => (
-                    <EventCard key={index} {...event} />
-                ))}
-            </Grid>
+            <Container sx={{ '@media (min-width:1535px)': { maxWidth: '75%' } }}>
+                <Grid container spacing={2} alignItems="stretch" sx={{pr: 2, pl:2}}>
+                    {events.map((event, index) => (
+                        <EventCard key={index} {...event} />
+                    ))}
+                </Grid>
+            </Container>
 
             <LoadMoreButton onClick={() => console.log("View more...")}/>
             <WideBanner/>
