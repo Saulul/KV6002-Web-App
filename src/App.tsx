@@ -10,11 +10,15 @@ import Chat from "./components/Chatbot/Chat"; // Import the Chat component
 import UserRegister from "./components/UserRegister";
 import UserLogin from "./components/UserLogin";
 import { UserProvider } from "./components/UserContext";
+import ProfilePage from "./components/ProfilePage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 const App: FC = () => {
   return (
     <UserProvider>
+      <div className="flex flex-col items-center pt-8 bg-gray-50 rounded-3xl">
       <BrowserRouter>
         <Chat />
         <Routes>
@@ -23,8 +27,10 @@ const App: FC = () => {
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/register" element={<UserRegister />} />
           <Route path="/login" element={<UserLogin />} />
+          <Route path="*" element={<ProfilePage />} />
         </Routes>
-      </BrowserRouter>
+        </BrowserRouter>
+      </div>
     </UserProvider>
   );
 };

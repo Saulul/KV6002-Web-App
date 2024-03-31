@@ -14,7 +14,7 @@ const Banner = () => {
 
     return (
         <div
-            className="flex overflow-hidden relative flex-col px-9 py-12 mt-8 w-full min-h-[596px] max-md:px-5 max-md:max-w-full">
+            className="flex overflow-hidden relative flex-col px-9 py-12 w-full min-h-[596px] max-md:px-5 max-md:max-w-full">
             <img
                 loading="lazy"
                 srcSet={image}

@@ -100,7 +100,7 @@ export default function UserRegister() {
           <div className="flex-auto text-4xl font-bold text-zinc-400 mb-4">
             Event<span className="text-zinc-500">Hive</span>
           </div>
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "#1976d2" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -182,7 +182,7 @@ export default function UserRegister() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, textTransform: "none", }}
+                sx={{ mt: 3, mb: 2, textTransform: "none" }}
               >
                 Sign Up
               </Button>
@@ -197,12 +197,15 @@ export default function UserRegister() {
           ) : (
             <>
               <Typography variant="h6" sx={{ mt: 3, mb: 2 }} align="center">
-                Thank you for registering, <b>{userDetails.firstName} {userDetails.lastName}</b>,
-                welcome to EventHive!
+                Thank you for registering,{" "}
+                <b>
+                  {userDetails.firstName} {userDetails.lastName}
+                </b>
+                , welcome to EventHive!
               </Typography>
               <Button
                 variant="contained"
-                sx={{ mt: 1, textTransform: "none", }}
+                sx={{ mt: 1, textTransform: "none" }}
                 onClick={() => navigate("/login")}
               >
                 Log In

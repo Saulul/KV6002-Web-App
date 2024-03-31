@@ -57,7 +57,7 @@ function Homepage(props) {
     }, []);
 
     return (
-      <div className="flex flex-col items-center pt-12 bg-gray-50 rounded-3xl">
+      <div className="flex flex-col items-center bg-gray-50 rounded-3xl">
         <Header />
         <Banner />
         <SearchFilters />
