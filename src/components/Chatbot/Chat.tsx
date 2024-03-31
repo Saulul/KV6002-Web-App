@@ -1,5 +1,19 @@
+/*!
+ *  @preserve
+ *
+ * ++++++++++++++++++++++++++++++++++++++
+ * Chat bot component for KV6002 project: EventHive
+ * ++++++++++++++++++++++++++++++++++++++
+ *
+ * Creator: Mehrdad Najarian
+ * Project: https://github.com/Saulul/KV6002-Web-App
+ *
+ */
 import React, {useEffect, useState} from "react";
 import {TextField, Button, Container, Grid, CircularProgress, LinearProgress} from "@mui/material";
+import AssistantIcon from '@mui/icons-material/Assistant';
+import CloseIcon from '@mui/icons-material/Close';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 import Message from "./Message";
 import OpenAI from "openai";
 import {MessageDto} from "../../models/MessageDto";
@@ -19,7 +33,7 @@ const Chat: React.FC = () => {
     useEffect(() => {
         setMessages([
             {
-                content: "Hi there! Welcome to Eventhive. I'm your AI-powered personal assistant. How can I help you today?",
+                content: "Hi there 👋 Welcome to EventHive ✨ I'm your AI-powered personal assistant 🤖 How can I help you today?",
                 isUser: false,
             },
         ]);
@@ -96,7 +110,10 @@ const Chat: React.FC = () => {
         // Print the last message coming from the assistant
         if (lastMessage) {
             console.log(lastMessage.content[0]["text"].value);
-            setMessages([...messages, createNewMessage(lastMessage.content[0]["text"].value, false)]);
+            let assistantMessage = lastMessage.content[0]["text"].value;
+            // Remove source annotations from the assistant's message
+            assistantMessage = assistantMessage.replace(/【.*?†source】/g, '');
+            setMessages([...messages, createNewMessage(assistantMessage, false)]);
         }
     };
 
@@ -111,20 +128,27 @@ const Chat: React.FC = () => {
     const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
 
     return (
-        <div className="fixed bottom-0 right-0 m-6 z-50">
+        <div className="fixed bottom-0 right-0 m-6 z-50 flex flex-col-reverse h-[70vh] items-end">
             {/* Button to toggle chat window */}
             <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-16 mt-2"
                 onClick={() => setIsChatOpen(!isChatOpen)}
             >
-                {isChatOpen ? 'Close Chat' : 'Open Chat'}
+                {isChatOpen ? <CloseIcon/> : <AssistantIcon/>}
             </button>
 
             {/* Conditional rendering of chat window */}
             {isChatOpen && (
-                <div className="bg-white rounded-lg p-2 shadow-lg w-96 h-[50vh] overflow-auto">
+                <div className="bg-white rounded-lg shadow-lg w-96 overflow-auto flex-grow">
+                    <div className="relative bg-blue-600 text-white p-2 flex items-center">
+                        <div className="relative bg-white rounded-full p-2">
+                            <SmartToyIcon color="primary"/>
+                            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div className="ml-4">Assistant is online</div>
+                    </div>
                     <Container>
-                    <Grid container direction="column" spacing={2} paddingBottom={5}>
+                        <Grid container direction="column" spacing={2} paddingBottom={5}>
                             {messages.map((message, index) => (
                                 <Grid item alignSelf={message.isUser ? "flex-end" : "flex-start"} key={index}>
                                     <Message key={index} message={message}/>
