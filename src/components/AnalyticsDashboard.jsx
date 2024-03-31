@@ -11,9 +11,9 @@ const AnalyticsDashboard = () => {
       const response = await axios.get('https://eventhive.creeknet.xyz/api/events?populate=tickets');
       if (response.status === 200) {
         // Directly set the fetched data into the events state
-        setEvents(response.data.data);
+        setEvents(response.data);
         // After updating the events state, you can call processChartData here
-        processChartData(response.data.data);
+        processChartData(response.data);
       } else {
         console.error('Failed to fetch events:', response.statusText);
       }
@@ -37,7 +37,7 @@ const AnalyticsDashboard = () => {
       labels: labels,
       datasets: [{
         label: 'Tickets Sold',
-        data: data,
+        data,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 1,
