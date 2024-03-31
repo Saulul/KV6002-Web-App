@@ -110,7 +110,10 @@ const Chat: React.FC = () => {
         // Print the last message coming from the assistant
         if (lastMessage) {
             console.log(lastMessage.content[0]["text"].value);
-            setMessages([...messages, createNewMessage(lastMessage.content[0]["text"].value, false)]);
+            let assistantMessage = lastMessage.content[0]["text"].value;
+            // Remove source annotations from the assistant's message
+            assistantMessage = assistantMessage.replace(/【.*?†source】/g, '');
+            setMessages([...messages, createNewMessage(assistantMessage, false)]);
         }
     };
 
