@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link"; // For navigation links
-import Divider from "@mui/material/Divider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -44,13 +43,17 @@ const Footer = () => (
       <Grid container spacing={4} justifyContent="space-between">
           {/* Title */}
           <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h5" fontWeight="bold" color="text.primary" className="text-zinc-400">
+            <Typography variant="h5" fontWeight="bold" className="text-zinc-400">
               Event<span className="text-zinc-500">Hive</span>
             </Typography>
           </Grid>
 
           {/* Subscription */}
-          <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              Subscribe to our newsletter
+            </Typography>
             <Box sx={{ display: "flex", flexWrap: "wrap" }}>
               <TextField
                   label="Enter your email"
@@ -62,7 +65,8 @@ const Footer = () => (
                 Subscribe
               </Button>
             </Box>
-          </Grid>
+          </Box>
+        </Grid>
 
           {/* Navigation Links */}
           <Grid item xs={12} md={2}>

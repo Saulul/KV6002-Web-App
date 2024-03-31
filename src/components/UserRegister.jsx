@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -183,7 +182,7 @@ export default function UserRegister() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, textTransform: "none", }}
               >
                 Sign Up
               </Button>
@@ -203,10 +202,10 @@ export default function UserRegister() {
               </Typography>
               <Button
                 variant="contained"
-                sx={{ mt: 1 }}
+                sx={{ mt: 1, textTransform: "none", }}
                 onClick={() => navigate("/login")}
               >
-                Login
+                Log In
               </Button>
             </>
           )}
