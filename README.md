@@ -15,3 +15,16 @@ By default, Replit runs the `dev` script, but you can configure it by changing t
 ### Typescript
 
 Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+
+### Installation of packages
+**install** npm install @stripe/stripe-js 
+
+(for stripe integration)
+
+**install** npm install @mui/material @emotion/react @emotion/styled
+
+(React component library that provides pre-designed and customizable components following the Material Design guidelines developed by Google)
+
+**install** npm install @mui/material @mui/icons-material react
+
+(Material-UI components for React applications. These components are designed following the Material Design guidelines and cover a wide range of UI elements such as buttons, forms, cards, navigation components, and more.)
