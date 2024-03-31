@@ -1,91 +1,156 @@
-/**
- * Map
- */
-
 import React, { useState, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
+import axios from "axios";
+import Event from "./Event.jsx";
+import { Link } from "react-router-dom";
 
 const MapComponent = () => {
   const [mapData, setMapData] = useState(null);
-  const [selectedMarker, setSelectedMarker] = useState(null); // State for selected marker
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [selectedVenueEvents, setSelectedVenueEvents] = useState([]);
+  const [venues, setVenues] = useState([]);
+  const [multimediaUrl, setMultimediaUrl] = useState(""); // State for multimedia URL
+  const [baseUrl, setBaseUrl] = useState(""); // State for base URL
 
-  const dummyData = [
-    {
-      coordinates: [-73.935242, 40.73061], // New York City
-      title: "Example Marker 1",
-      description: "This is example marker 1 on the map.",
-      category: "Example Category 1",
-      imageUrl: "https://example.com/image1.jpg",
-    },
-    {
-      coordinates: [-74.0059, 40.7128], // New York City
-      title: "Example Marker 2",
-      description: "This is example marker 2 on the map.",
-      category: "Example Category 2",
-      imageUrl: "https://example.com/image2.jpg",
-    },
-    // Add more markers around the UK
-    {
-      coordinates: [-0.1276, 51.5074], // London
-      title: "London Marker",
-      description: "This is a marker in London.",
-      category: "UK",
-      imageUrl: "https://example.com/london.jpg",
-    },
-    {
-      coordinates: [-1.9036, 52.4828], // Birmingham
-      title: "Birmingham Marker",
-      description: "This is a marker in Birmingham.",
-      category: "UK",
-      imageUrl: "https://example.com/birmingham.jpg",
-    },
-    {
-      coordinates: [-3.1883, 55.9533], // Edinburgh
-      title: "Edinburgh Marker",
-      description: "This is a marker in Edinburgh.",
-      category: "UK",
-      imageUrl: "https://example.com/edinburgh.jpg",
-    },
-    // Add more markers as needed
-  ];
+  const fetchVenues = async () => {
+    try {
+      const response = await axios.get(
+        "https://eventhive.creeknet.xyz/api/venues?populate=*"
+      );
+      setVenues(response.data.data);
+    } catch (error) {
+      console.error("Error fetching venues:", error);
+    }
+  };
+
+  const fetchCoordinates = async (address) => {
+    try {
+      const response = await axios.get(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json`,
+        {
+          params: {
+            access_token:
+              "pk.eyJ1Ijoic3RlZmFuazc3NyIsImEiOiJjbHN0Z2xpeGIxcnNxMmpwczhjNGNzbm5sIn0.9K8UicMtbutDLrXWgxiF7A",
+          },
+        }
+      );
+      return response.data.features[0].geometry.coordinates;
+    } catch (error) {
+      console.error("Error fetching coordinates:", error);
+    }
+  };
 
   useEffect(() => {
+    fetchVenues();
+  }, []);
+
+  useEffect(() => {
+    if (!venues.length) return;
+
+    setBaseUrl("https://eventhive.creeknet.xyz"); // Set base URL
+
     mapboxgl.accessToken =
-        import.meta.env.VITE_MAPBOX_API_KEY;
+      "pk.eyJ1Ijoic3RlZmFuazc3NyIsImEiOiJjbHN0Z2xpeGIxcnNxMmpwczhjNGNzbm5sIn0.9K8UicMtbutDLrXWgxiF7A";
     const map = new mapboxgl.Map({
       container: "map-container",
       style: "mapbox://styles/mapbox/streets-v12",
-      center: [-2.941, 54.293], // Centered around the UK
-      zoom: 5,
+      center: [-1.6174, 54.9783],
+      zoom: 12,
     });
 
-    // Add markers and click event listener
-    dummyData.forEach((marker) => {
-      const markerElement = new mapboxgl.Marker()
-        .setLngLat(marker.coordinates)
+    venues.forEach(async (venue) => {
+      const coordinates = await fetchCoordinates(venue.attributes.postcode);
+      const marker = new mapboxgl.Marker()
+        .setLngLat(coordinates)
+        .setPopup(
+          new mapboxgl.Popup().setHTML(
+            `<h3>${venue.attributes.name}</h3>
+             ${
+               venue.attributes.multimedia &&
+               venue.attributes.multimedia.data.length > 0 &&
+               venue.attributes.multimedia.data[0].attributes.formats?.small
+                 ? `<img src="${baseUrl}${venue.attributes.multimedia.data[0].attributes.formats.small.url}" alt="${venue.attributes.name}" class="w-full h-24 mr-4 rounded">`
+                 : ""
+             }
+             <p>${venue.attributes.description}</p>`
+          )
+        )
         .addTo(map);
 
-      markerElement.getElement().addEventListener("click", () => {
-        setSelectedMarker(marker); // Update selectedMarker state
+      marker.getElement().addEventListener("click", () => {
+        setSelectedMarker(venue);
+        setSelectedVenueEvents(venue.attributes.events.data);
+        setMultimediaUrl(venue.attributes.multimedia.data[0].attributes.formats.thumbnail.url);
       });
     });
+
+    console.log(multimediaUrl);
+    // console.log(baseUrl);
+    console.log(venues);
 
     setMapData(map);
 
     return () => map.remove();
-  }, []);
+  }, [venues]);
 
   return (
-    <div>
-      {" "}
-      {/* Wrapper for map and info panel */}
-      <div id="map-container" style={{ width: "100%", height: "75vh" }} />
-      {selectedMarker && (
-        <div id="info-panel" >
-          <h2 className="text-3xl font-bold">{selectedMarker.title}</h2>
-          <p className="text-l font-bold">{selectedMarker.description}</p>
-          <a href="#"> Book </a>
-          {/* Add more fields here as needed */}
+    <div className="map-container flex">
+      <div id="map-container" style={{ width: "100%", height: "100vh" }} />
+
+      {selectedVenueEvents.length > 0 && (
+        <div
+          id="event-sidebar"
+          className="absolute left-0 top-0 h-full w-96 bg-white border-r border-gray-300 p-4 shadow-lg overflow-auto"
+        >
+          {multimediaUrl && (
+            <img
+              src={`${baseUrl}${multimediaUrl}`} // Using multimedia URL and base URL
+              alt={selectedMarker && selectedMarker.attributes.name} // Alt text for the venue image
+              className="w-full h-auto mb-4 rounded"
+            />
+          )}
+          <h2 className="text-2xl font-semibold mb-4">
+            Events at {selectedMarker && selectedMarker.attributes.name}
+          </h2>
+          <ul>
+            {selectedVenueEvents.map((event) => (
+              <li key={event.id} className="mb-4">
+                <div className="flex flex-col">
+                  <div>
+                    <h3 className="text-lg font-semibold">
+                      {event.attributes.title}
+                    </h3>
+                    <p className="text-sm mb-2">
+                      {event.attributes.description}
+                    </p>
+                    <p className="text-sm mb-2">
+                      Date:{" "}
+                      {new Date(event.attributes.date).toLocaleDateString()}
+                    </p>
+                    <p className="text-sm mb-2">
+                      Price: {event.attributes.price}
+                    </p>
+                    {/* <a
+                      href={`${baseUrl}/api/events/${event.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    >
+                      Book
+                    </a> */}
+
+                    <Link
+                      // to={`${baseUrl}/api/events/${event.id}`}
+                      to={`/events/${event.id}`}
+                      className="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                    >
+                      View Details
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
