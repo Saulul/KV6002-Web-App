@@ -125,7 +125,7 @@ export default function SignIn() {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+                  sx={{ mt: 3, mb: 2, textTransform: "none", }}
                 >
                   Sign In
                 </Button>
@@ -146,7 +146,7 @@ export default function SignIn() {
               <Button
                 variant="contained"
                 onClick={() => navigate("/")}
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, textTransform: "none", }}
               >
                 Browse Events
               </Button>
