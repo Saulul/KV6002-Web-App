@@ -68,8 +68,8 @@ const MapComponent = () => {
              ${
                venue.attributes.multimedia &&
                venue.attributes.multimedia.data.length > 0 &&
-               venue.attributes.multimedia.data[0].formats?.small
-                 ? `<img src="${baseUrl}${venue.attributes.multimedia.data[0].formats.small.url}" alt="${venue.attributes.name}" class="w-24 h-24 mr-4 rounded">`
+               venue.attributes.multimedia.data[0].attributes.formats?.small
+                 ? `<img src="${baseUrl}${venue.attributes.multimedia.data[0].attributes.formats.small.url}" alt="${venue.attributes.name}" class="w-full h-24 mr-4 rounded">`
                  : ""
              }
              <p>${venue.attributes.description}</p>`
@@ -80,6 +80,7 @@ const MapComponent = () => {
       marker.getElement().addEventListener("click", () => {
         setSelectedMarker(venue);
         setSelectedVenueEvents(venue.attributes.events.data);
+        setMultimediaUrl(venue.attributes.multimedia.data[0].attributes.formats.thumbnail.url);
       });
     });
 
