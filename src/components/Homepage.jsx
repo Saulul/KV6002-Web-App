@@ -8,6 +8,7 @@ import WideBanner from "./WideBanner";
 import Footer from "./Footer";
 import {Container, Grid} from "@mui/material";
 
+
 function Homepage(props) {
     const [events, setEvents] = useState([]);
 

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import PurchaseConfirmation from './ConfirmationPage'; // Import the PurchaseConfirmation component
 
 function Purchase() {
   const [event, setEvent] = useState(null);
   const [error, setError] = useState(null);
   const [regularQuantity, setRegularQuantity] = useState(0);
   const [vipQuantity, setVIPQuantity] = useState(0);
-  const [showDialog, setShowDialog] = useState(false);
+  const [showRegularDialog, setShowRegularDialog] = useState(false);
+  const [showVIPDialog, setShowVIPDialog] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate(); // Use navigate instead of history
+  const navigate = useNavigate(); 
 
   let { eventId } = useParams();
 
@@ -41,29 +43,50 @@ function Purchase() {
     return <div>Loading...</div>;
   }
 
-  const handlePurchaseClick = () => {
+  const handleRegularPurchaseClick = () => {
     const regularAvailable = event.data.attributes.ticketQuantityRegular - event.data.attributes.ticketsSoldRegular;
-    const vipAvailable = event.data.attributes.ticketQuantityVIP - event.data.attributes.ticketSoldVIP;
 
-    if (regularQuantity <= 0 && vipQuantity <= 0) {
+    if (regularQuantity <= 0) {
       setErrorMessage('Please enter a valid quantity.');
       return;
     }
 
-    if (regularQuantity > regularAvailable && vipQuantity > vipAvailable) {
-      setErrorMessage('Sorry, both ticket types are not available.');
+    if (regularQuantity > regularAvailable) {
+      setErrorMessage('Sorry, regular tickets are not available.');
       return;
     }
 
-    setShowDialog(true);
+    setShowRegularDialog(true);
   };
 
-  const handleBuyTickets = () => {
+  const handleVIPPurchaseClick = () => {
+    const vipAvailable = event.data.attributes.ticketQuantityVIP - event.data.attributes.ticketSoldVIP;
+
+    if (vipQuantity <= 0) {
+      setErrorMessage('Please enter a valid quantity.');
+      return;
+    }
+
+    if (vipQuantity > vipAvailable) {
+      setErrorMessage('Sorry, VIP tickets are not available.');
+      return;
+    }
+
+    setShowVIPDialog(true);
+  };
+
+  const handleBuyRegularTickets = () => {
     console.log('Regular tickets purchased:', regularQuantity);
+    setShowRegularDialog(false);
+    // Redirect to the PurchaseConfirmation page after purchasing regular tickets
+    navigate('/purchase-confirmation');
+  };
+
+  const handleBuyVIPTickets = () => {
     console.log('VIP tickets purchased:', vipQuantity);
-    setShowDialog(false);
-    // Redirect to Stripe payment page (simulate)
-    navigate('/stripe-payment'); // Use navigate instead of history.push
+    setShowVIPDialog(false);
+    // Redirect to the PurchaseConfirmation page after purchasing VIP tickets
+    navigate('/purchase-confirmation');
   };
 
   // Function to format date to DD/MM/YYYY HH:MM
@@ -99,6 +122,7 @@ function Purchase() {
             onChange={(e) => setRegularQuantity(e.target.value)}
             placeholder="Enter quantity"
           />
+          <button onClick={handleRegularPurchaseClick}>Buy Regular Tickets</button>
         </div>
         <div>
           <h3>VIP Tickets</h3>
@@ -110,17 +134,21 @@ function Purchase() {
             onChange={(e) => setVIPQuantity(e.target.value)}
             placeholder="Enter quantity"
           />
+          <button onClick={handleVIPPurchaseClick}>Buy VIP Tickets</button>
         </div>
       </div>
-      <div className="ticket-footer">
-        <button onClick={handlePurchaseClick}>Buy Tickets</button>
-      </div>
-      {showDialog && (
+      {showRegularDialog && (
         <div className="dialog">
-          <h3>Confirm Purchase</h3>
+          <h3>Confirm Purchase - Regular Tickets</h3>
           <p>Regular Tickets: {regularQuantity}</p>
+          <button onClick={handleBuyRegularTickets}>Confirm Purchase</button>
+        </div>
+      )}
+      {showVIPDialog && (
+        <div className="dialog">
+          <h3>Confirm Purchase - VIP Tickets</h3>
           <p>VIP Tickets: {vipQuantity}</p>
-          <button onClick={handleBuyTickets}>Confirm Purchase</button>
+          <button onClick={handleBuyVIPTickets}>Confirm Purchase</button>
         </div>
       )}
       {errorMessage && (

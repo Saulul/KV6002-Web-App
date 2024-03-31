@@ -12,8 +12,8 @@ import Chat from "./components/Chatbot/Chat"; // Import the Chat component
 import UserRegister from "./components/UserRegister";
 import UserLogin from "./components/UserLogin";
 import NoPage from "./components/NoPage.jsx";
-
-import Stripeint from "./components/stripeint.jsx";
+import ConfirmationPage from "./components/ConfirmationPage.jsx";
+import Stripeint from "./components/Stripeint.jsx";
 import Buytickets from "./components/BuyTickets.jsx";
 import Purchase from "./components/Purchase.jsx";
 
@@ -25,7 +25,7 @@ const App: FC = () => {
         <Route path="/" element={<Homepage />} />
         <Route path="/map" element={<Map />} />
         <Route path="/purchase/:eventId" element={<Purchase/>} />
-
+        <Route path="/confirmationpage" element={<ConfirmationPage />} />"
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/login" element={<UserLogin />} />
