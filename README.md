@@ -52,3 +52,9 @@ For testing purposes, use the following payment information:
 - **Name**: Mickey Mouse
 - **Email**: mickeymouse@gmail.com
 - **Address**: *any*
+
+## Back-end code repo (Strapi CMS)
+- https://github.com/Elliot-Potts/EventHive-CMS
+
+## Email Service API
+- https://github.com/skovacs4/apis/tree/main
