@@ -25,7 +25,6 @@ const App: FC = () => {
         <Route path="/map" element={<Map />} />
         <Route path="/purchase/:eventId" element={<Purchase/>} />
         <Route path="/confirmationpage" element={<ConfirmationPage />} />"
-        <Route path="/notifications" element={<Notifications />} />
         <Route path="/register" element={<UserRegister />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="*" element={<NoPage />} />

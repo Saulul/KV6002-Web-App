@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import PurchaseConfirmation from './ConfirmationPage'; // Import the PurchaseConfirmation component
+import PurchaseConfirmation from './ConfirmationPage';
+import SignIn from './UserLogin';
+
 import Header from './Header';
 import Footer from './Footer';
 
@@ -37,6 +39,14 @@ function Purchase() {
       });
   }, [eventId]);
 
+  useEffect(() => {
+    // Check if the user is logged in
+    const jwt = localStorage.getItem('jwt');
+    if (!jwt) {
+      navigate("/login"); // Redirect to login page if not logged in
+    }
+  }, [navigate]);
+
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -44,10 +54,14 @@ function Purchase() {
   if (!event) {
     return <div>Loading...</div>;
   }
+  
 
   const handleRegularPurchaseClick = () => {
-    const regularAvailable = event.data.attributes.ticketQuantityRegular - event.data.attributes.ticketsSoldRegular;
 
+   
+    
+    const regularAvailable = event.data.attributes.ticketQuantityRegular - event.data.attributes.ticketsSoldRegular;
+    
     if (regularQuantity <= 0) {
       setErrorMessage('Please enter a valid quantity.');
       return;
@@ -62,8 +76,11 @@ function Purchase() {
   };
 
   const handleVIPPurchaseClick = () => {
-    const vipAvailable = event.data.attributes.ticketQuantityVIP - event.data.attributes.ticketSoldVIP;
 
+   
+    
+    const vipAvailable = event.data.attributes.ticketQuantityVIP - event.data.attributes.ticketSoldVIP;
+    
     if (vipQuantity <= 0) {
       setErrorMessage('Please enter a valid quantity.');
       return;
@@ -128,7 +145,7 @@ function Purchase() {
                 onChange={(e) => setRegularQuantity(e.target.value)}
                 placeholder="Enter quantity"
               />
-              <button onClick={handleRegularPurchaseClick}>Buy Regular Tickets</button>
+              <button className="purchase-button" onClick={handleRegularPurchaseClick}>Purchase</button>
             </div>
             <div>
               <h3>VIP Tickets</h3>
@@ -140,7 +157,7 @@ function Purchase() {
                 onChange={(e) => setVIPQuantity(e.target.value)}
                 placeholder="Enter quantity"
               />
-              <button onClick={handleVIPPurchaseClick}>Buy VIP Tickets</button>
+              <button className="purchase-button" onClick={handleVIPPurchaseClick}> Purchase </button>
             </div>
           </div>
           {showRegularDialog && (

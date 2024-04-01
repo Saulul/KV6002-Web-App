@@ -1,3 +1,33 @@
+# Events App
+
+## Welcome to the Events App, a platform designed to help you discover, browse, and purchase tickets for various events. From concerts to conferences, workshops to sports events, the Events App has you covered.
+
+## Features
+
+- **Event Discovery**: Browse through a diverse range of events happening locally or globally.
+- **Ticket Purchase**: Seamlessly purchase tickets for your favorite events with just a few clicks.
+- **User Authentication**: Securely log in to your account to manage tickets and preferences.
+- **Event Details**: Access comprehensive information about each event, including date, time, venue, description, and ticket availability.
+- **Purchase History**: Keep track of all the events you've purchased tickets for.
+- **Email Confirmation**: Receive a confirmation email upon successful ticket purchase.
+- **Responsive Design**: Enjoy a smooth experience across all devices, whether it's desktop, tablet, or mobile.
+
+## Technologies Used
+
+- **Frontend**: React.js, React Router, Material-UI
+- **Backend**: Strapi
+- **Authentication**: JSON Web Tokens (JWT)
+- **API Integration**: Axios, Mapbox, Strapi, Stripe
+- **Database**: MongoDB Atlas
+- **Deployment**: Vercel (Frontend), Heroku (Backend)
+- **Email Service**: SendGrid, Nodemailer
+
+## Setup
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Saulul/KV6002-Web-App/
+
 ## Running React on Repl.it
 
 [React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
@@ -7,24 +37,41 @@
 Using the two in conjunction is one of the fastest ways to build a web app.
 
 ### Getting Started
-- Hit run
+- Click "Run" to start the development server
 - Edit [App.tsx](#src/App.tsx) and watch it live update!
 
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
+By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the Vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
 
-### Typescript
+### TypeScript
 
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+Simply rename any file from `.jsx` to `.tsx`. Alternatively, you can use our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
 
-### Installation of packages
-**install** npm install @stripe/stripe-js 
+### Installation of Packages
+1. **Install Stripe Integration**:
+   ```bash
+   npm install @stripe/stripe-js
 
-(for stripe integration)
+2. **Install Material-UI**:
+   ```bash
+   npm install @mui/material @emotion/react @emotion/styled
 
-**install** npm install @mui/material @emotion/react @emotion/styled
+3. **Install Additional Material-UI Packages**:
+   ```bash
+   npm install @mui/material @mui/icons-material react
 
-(React component library that provides pre-designed and customizable components following the Material Design guidelines developed by Google)
+If you encounter any errors, check the console for missing package installations.
 
-**install** npm install @mui/material @mui/icons-material react
+### Login and Signup Component Credentials
+- **Username**: todd@gmail.com
+- **Password**: password
 
-(Material-UI components for React applications. These components are designed following the Material Design guidelines and cover a wide range of UI elements such as buttons, forms, cards, navigation components, and more.)
+### Testing Stripe Payment Integration
+For testing purposes, use the following payment information:
+- **Card Number**: 4242 4242 4242 4242
+- **Expiration Date**: 20/09
+- **CSV**: 456
+- **Name**: Mickey Mouse
+- **Email**: mickeymouse@gmail.com
+- **Address**: *any*
+
+Feel free to explore and enjoy the Events App! If you have any questions or feedback, don't hesitate to reach out.
