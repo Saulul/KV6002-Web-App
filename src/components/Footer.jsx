@@ -72,8 +72,8 @@ const Footer = () => (
           {/* Navigation Links */}
           <Grid item xs={12} md={2}>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link href="#" underline="hover" color="text.primary">
-                Home
+              <Link href="/analytics" underline="hover" color="text.primary">
+                Analytics Dash
               </Link>
               <Link href="#" underline="hover" color="text.primary">
                 About

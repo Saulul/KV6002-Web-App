@@ -1,0 +1,173 @@
+.ticket {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.ticket-header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.ticket-header p {
+  font-size: 16px;
+
+}
+
+.ticket-body {
+  padding: 20px;
+}
+
+.ticket-description {
+  margin-bottom: 20px;
+ 
+}
+
+.ticket-tickets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.ticket-ticket {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 15px;
+  border: 2px solid #121111;
+}
+
+.ticket-ticket h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: 2px solid #121111;
+}
+..input{
+  border-block-color: #121111;
+}
+.ticket-ticket input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border: 2px solid #121111;
+  
+  
+}
+
+.ticket-footer {
+  text-align: center;
+  border: 2px solid #121111;
+  border-block-end-width: 2px;
+  border-radius:  10px 10px;
+  
+}
+
+.purchase-button {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #121111;
+  padding: 12px 24px; /* Adjust padding */
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.purchase-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  text-bold: bold;
+  border: 2px solid #121111;
+}
+
+.dialog h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  border: 2px solid #121111;
+  text-bold: bold;
+}
+
+.dialog p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 2px solid #121111;
+}
+.ticket {
+  
+  /* Your existing CSS styles for the ticket container */
+  position: relative; /* Set the container to relative position */
+}
+
+.dialog {
+  /* Styles for the dialog */
+  position: absolute; /* Set the dialog to absolute position */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the dialog perfectly */
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dialog button {
+  /* Styles for the buttons inside the dialog */
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-dialog {
+  /* Styles for the error dialog */
+  position: absolute; /* Set the error dialog to absolute position */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the error dialog perfectly */
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.error-dialog button {
+  /* Styles for the close button inside the error dialog */
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-dialog button:hover {
+  background-color: #555; /* Change color on hover */
+}
