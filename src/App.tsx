@@ -15,7 +15,6 @@ import NoPage from "./components/NoPage.jsx";
 import ConfirmationPage from "./components/ConfirmationPage.jsx";
 import Stripeint from "./components/Stripeint.jsx";
 import Event from "./components/Event";
-import Stripeint from "./components/stripeint.jsx";
 import Buytickets from "./components/BuyTickets.jsx";
 import Purchase from "./components/Purchase.jsx";
 import AnalyticsDashboard from "./components/AnalyticsDashboard";
@@ -29,7 +28,7 @@ const App: FC = () => {
                     <Route path="/" element={<Homepage/>}/>
                     <Route path="/map" element={<Map/>}/>
                     <Route path="/purchase/:eventId" element={<Purchase/>}/>
-                    <Route path="/confirmationpage" element={<ConfirmationPage />} />"
+                    <Route path="/confirmationpage" element={<ConfirmationPage/>} />"
                     <Route path="/register" element={<UserRegister/>}/>
                     <Route path="/login" element={<UserLogin/>}/>
                     <Route path="*" element={<NoPage/>}/>
