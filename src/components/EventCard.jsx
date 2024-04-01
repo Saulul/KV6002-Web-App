@@ -6,10 +6,13 @@ import {
   CardMedia,
   Grid,
   Typography,
+  Button,
+  Snackbar,
 } from "@mui/material";
 import { AddToCalendarButton } from "../libs/add-to-calendar-button-react";
-import StarBorderIcon from "@mui/icons-material/StarBorder"; // Import for unfilled star icon
-import StarIcon from "@mui/icons-material/Star"; // Import for filled star icon
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
+import Alert from "@mui/material/Alert";
 
 const EventCard = ({
   imageSrc,
@@ -20,15 +23,39 @@ const EventCard = ({
   endDatetime,
   venueName,
   venueCity,
+  isLoggedIn, // Prop to track if the user is logged in
 }) => {
-  const [isFavourited, setIsFavourited] = useState(false); // State to manage if the event is favourited
+  const [isFavourited, setIsFavourited] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertSeverity, setAlertSeverity] = useState("success");
 
-  // Function to toggle the favourite state
-  const toggleFavourite = () => {
-    setIsFavourited(!isFavourited);
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
   };
 
-  // Function to format date and time
+  const toggleFavourite = () => {
+    if (!isLoggedIn) {
+      setOpen(true);
+      setAlertMessage("Please login to favourite events");
+      setAlertSeverity("warning");
+    } else {
+      setIsFavourited(!isFavourited);
+      // Adjusting message and severity based on the favourite state
+      if (isFavourited) {
+        setAlertMessage("Event removed from favourites");
+        setAlertSeverity("info");
+      } else {
+        setAlertMessage("Added to favourites");
+        setAlertSeverity("success");
+      }
+      setOpen(true);
+    }
+  };
+
   const formatDateTime = (datetime) => {
     const dateObj = new Date(datetime);
     const year = dateObj.getFullYear();
@@ -71,25 +98,6 @@ const EventCard = ({
             alt="Event"
             style={{ borderTopLeftRadius: "4px", borderTopRightRadius: "4px" }}
           />
-          <IconButton
-            onClick={toggleFavourite}
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              color: isFavourited ? "gold" : "white",
-              "&:hover": {
-                color: "gold",
-              },
-              fontSize: "2rem",
-            }}
-          >
-            {isFavourited ? (
-              <StarIcon fontSize="inherit" />
-            ) : (
-              <StarBorderIcon fontSize="inherit" />
-            )}
-          </IconButton>
         </div>
         <CardContent>
           <Typography
@@ -104,7 +112,7 @@ const EventCard = ({
             color="text.secondary"
             style={{ marginBottom: "10px" }}
           >
-            {category}
+            <b>{category}</b>
           </Typography>
           <Typography
             variant="body2"
@@ -130,9 +138,25 @@ const EventCard = ({
             timeZone="Europe/London"
             location={`${venueName}, ${venueCity}`}
             options="'Google','Apple','Outlook.com','Yahoo','iCal'"
-          ></AddToCalendarButton>
+          />
+          <Button
+            startIcon={isFavourited ? <StarIcon /> : <StarBorderIcon />}
+            onClick={toggleFavourite}
+            style={{ marginTop: "10px" }}
+          >
+            {isFavourited ? "Remove from favourites" : "Add to favourites"}
+          </Button>
         </CardContent>
       </Card>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity={alertSeverity}
+          sx={{ width: "100%" }}
+        >
+          {alertMessage}
+        </Alert>
+      </Snackbar>
     </Grid>
   );
 };
