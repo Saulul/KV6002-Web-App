@@ -11,6 +11,7 @@ import Chat from "./components/Chatbot/Chat"; // Import the Chat component
 import UserRegister from "./components/UserRegister";
 import UserLogin from "./components/UserLogin";
 import NoPage from "./components/NoPage.jsx";
+import Event from "./components/Event";
 
 import Stripeint from "./components/stripeint.jsx";
 import Buytickets from "./components/BuyTickets.jsx";
@@ -31,6 +32,7 @@ const App: FC = () => {
         <Route path="/stripe-payment" element={<Stripeint />} />
         <Route path="/buytickets" element={<Buytickets />} />
         <Route path="/analytics" element={<AnalyticsDashboard />} />
+        <Route path="/events/:id" element={<Event />} />
       </Routes>
     </BrowserRouter>
   );
