@@ -81,9 +81,9 @@ const Header = () => {
     }, []);
 
     return (
-        <div className="flex gap-5 justify-between px-5 w-full max-w-[1200px] max-md:flex-wrap max-md:max-w-full">
+        <div className="flex gap-5 justify-between px-5 w-full max-w-[1200px] max-md:flex-wrap max-md:max-w-full mx-auto p-4">
             <div className="flex-auto text-4xl font-bold text-zinc-400">
-                Event<span className="text-zinc-500">Hive</span>
+                <a href="/">Event<span className="text-zinc-500">Hive</span></a>
             </div>
             <div className="flex gap-5 justify-between text-base whitespace-nowrap">
                 {isLoggedIn() ? (

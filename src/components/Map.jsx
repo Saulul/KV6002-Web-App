@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const MapComponent = () => {
   const [mapData, setMapData] = useState(null);
@@ -28,8 +30,7 @@ const MapComponent = () => {
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json`,
         {
           params: {
-            access_token:
-            import.meta.env.VITE_MAPBOX_API_KEY,
+            access_token: import.meta.env.VITE_MAPBOX_API_KEY,
           },
         }
       );
@@ -48,8 +49,7 @@ const MapComponent = () => {
 
     setBaseUrl("https://eventhive.creeknet.xyz"); // Set base URL
 
-    mapboxgl.accessToken =
-    import.meta.env.VITE_MAPBOX_API_KEY;
+    mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_API_KEY;
     const map = new mapboxgl.Map({
       container: "map-container",
       style: "mapbox://styles/mapbox/streets-v12",
@@ -79,7 +79,9 @@ const MapComponent = () => {
       marker.getElement().addEventListener("click", () => {
         setSelectedMarker(venue);
         setSelectedVenueEvents(venue.attributes.events.data);
-        setMultimediaUrl(venue.attributes.multimedia.data[0].attributes.formats.thumbnail.url);
+        setMultimediaUrl(
+          venue.attributes.multimedia.data[0].attributes.formats.thumbnail.url
+        );
       });
     });
 
@@ -93,43 +95,45 @@ const MapComponent = () => {
   }, [venues]);
 
   return (
-    <div className="map-container flex">
-      <div id="map-container" style={{ width: "100%", height: "100vh" }} />
+    <div>
+      <Header />
+      <div className="map-container flex">
+        <div id="map-container" style={{ width: "100%", height: "100vh" }} />
 
-      {selectedVenueEvents.length > 0 && (
-        <div
-          id="event-sidebar"
-          className="absolute left-0 top-0 h-full w-96 bg-white border-r border-gray-300 p-4 shadow-lg overflow-auto"
-        >
-          {multimediaUrl && (
-            <img
-              src={`${baseUrl}${multimediaUrl}`} // Using multimedia URL and base URL
-              alt={selectedMarker && selectedMarker.attributes.name} // Alt text for the venue image
-              className="w-full h-auto mb-4 rounded"
-            />
-          )}
-          <h2 className="text-2xl font-semibold mb-4">
-            Events at {selectedMarker && selectedMarker.attributes.name}
-          </h2>
-          <ul>
-            {selectedVenueEvents.map((event) => (
-              <li key={event.id} className="mb-4">
-                <div className="flex flex-col">
-                  <div>
-                    <h3 className="text-lg font-semibold">
-                      {event.attributes.title}
-                    </h3>
-                    <p className="text-sm mb-2">
-                      {event.attributes.description}
-                    </p>
-                    <p className="text-sm mb-2">
-                      Date:{" "}
-                      {new Date(event.attributes.date).toLocaleDateString()}
-                    </p>
-                    <p className="text-sm mb-2">
-                      Price: {event.attributes.price}
-                    </p>
-                    {/* <a
+        {selectedVenueEvents.length > 0 && (
+          <div
+            id="event-sidebar"
+            className="absolute left-0 top-0 h-full w-96 bg-white border-r border-gray-300 p-4 shadow-lg overflow-auto "
+          >
+            {multimediaUrl && (
+              <img
+                src={`${baseUrl}${multimediaUrl}`} // Using multimedia URL and base URL
+                alt={selectedMarker && selectedMarker.attributes.name} // Alt text for the venue image
+                className="w-full h-auto mb-4 rounded"
+              />
+            )}
+            <h2 className="text-2xl font-semibold mb-4">
+              Events at {selectedMarker && selectedMarker.attributes.name}
+            </h2>
+            <ul>
+              {selectedVenueEvents.map((event) => (
+                <li key={event.id} className="mb-4">
+                  <div className="flex flex-col">
+                    <div>
+                      <h3 className="text-lg font-semibold">
+                        {event.attributes.title}
+                      </h3>
+                      <p className="text-sm mb-2">
+                        {event.attributes.description}
+                      </p>
+                      <p className="text-sm mb-2">
+                        Date:{" "}
+                        {new Date(event.attributes.date).toLocaleDateString()}
+                      </p>
+                      <p className="text-sm mb-2">
+                        Price: {event.attributes.price}
+                      </p>
+                      {/* <a
                       href={`${baseUrl}/api/events/${event.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -138,20 +142,22 @@ const MapComponent = () => {
                       Book
                     </a> */}
 
-                    <Link
-                      // to={`${baseUrl}/api/events/${event.id}`}
-                      to={`/events/${event.id}`}
-                      className="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                    >
-                      View Details
-                    </Link>
+                      <Link
+                        // to={`${baseUrl}/api/events/${event.id}`}
+                        to={`/events/${event.id}`}
+                        className="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                      >
+                        View Details
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      <Footer />
     </div>
   );
 };
