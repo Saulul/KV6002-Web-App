@@ -14,6 +14,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useUser } from "./UserContext";
 
 const API_URL = "https://eventhive.creeknet.xyz/api";
 
@@ -40,6 +41,7 @@ const defaultTheme = createTheme();
 export default function SignIn() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [firstName, setFirstName] = useState('');
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -61,6 +63,7 @@ export default function SignIn() {
       const responseData = await response.json();
       if (response.ok) {
         localStorage.setItem('jwt', responseData.jwt);
+        setUser({ firstName: responseData.user.firstName });
         setFirstName(responseData.user.firstName);
         setIsLoggedIn(true);
         console.log('Login successful', responseData);
