@@ -3,6 +3,7 @@ import mapboxgl from "mapbox-gl";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const MapComponent = () => {
   const [mapData, setMapData] = useState(null);
@@ -102,7 +103,7 @@ const MapComponent = () => {
         {selectedVenueEvents.length > 0 && (
           <div
             id="event-sidebar"
-            className="absolute left-0 top-0 h-full w-96 bg-white border-r border-gray-300 p-4 shadow-lg overflow-auto"
+            className="absolute left-0 top-0 h-full w-96 bg-white border-r border-gray-300 p-4 shadow-lg overflow-auto "
           >
             {multimediaUrl && (
               <img
@@ -156,6 +157,7 @@ const MapComponent = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 };
