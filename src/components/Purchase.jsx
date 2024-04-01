@@ -73,7 +73,7 @@ function Purchase() {
       setErrorMessage('Sorry, VIP tickets are not available.');
       return;
     }
-    
+
 
     setShowVIPDialog(true);
   };
@@ -83,14 +83,14 @@ function Purchase() {
     console.log('Regular tickets purchased:', regularQuantity);
     setShowRegularDialog(false);
     // Redirect to the PurchaseConfirmation page after purchasing regular tickets
-    window.location.href = '';//{event.data.attributes.ticketStrapiLinkRegular};
+    window.location.href= event.data.attributes.ticketStrapiLinkRegular;
   };
 
   const handleBuyVIPTickets = () => {
     console.log('VIP tickets purchased:', vipQuantity);
     setShowVIPDialog(false);
     // Redirect to the PurchaseConfirmation page after purchasing VIP tickets
-    window.location.href = '';//{event.data.attributes.ticketStrapiLinkVIP};
+    window.location.href=event.data.attributes.ticketStrapiLinkVIP;
   };
 
   // Function to format date to DD/MM/YYYY HH:MM
@@ -112,7 +112,6 @@ function Purchase() {
           <div className="ticket-header">
             <h1>{event.data.attributes.title}</h1>
             <p>Date: {formatDate(event.data.attributes.date)}</p>
-            <p>Venue: {event.data.attributes.venue}</p>
           </div>
           <div className="ticket-body">
             <h2>Description</h2>
@@ -167,7 +166,7 @@ function Purchase() {
         </div>
         <Footer />
       </div>
-      
+
     </>
   );
 }

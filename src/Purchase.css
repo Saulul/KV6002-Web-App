@@ -266,3 +266,57 @@
   color: #ff0000;
   margin-bottom: 5px;
 }
+/*///// purchase confirmation css /////*/
+
+.purchase-confirmation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.purchase-confirmation {
+  background-color: #ffffff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.purchase-confirmation h2 {
+  color: #343a40; /* Dark gray text */
+}
+
+.purchase-confirmation p {
+  margin-bottom: 20px;
+  color: #6c757d; /* Medium gray text */
+}
+
+.confirmation-options {
+  margin-top: 20px;
+}
+
+.confirmation-options p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.confirmation-options div {
+  display: flex;
+  justify-content: center;
+}
+
+.option-link {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #343a40; /* Dark gray background */
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.option-link:hover {
+  background-color: #495057; /* Darker gray background on hover */
+}
