@@ -1,4 +1,3 @@
-// Header.jsx
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {
@@ -13,10 +12,11 @@ import {
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import EventIcon from "@mui/icons-material/Event"; // Import the icon for the 'Add Event' menu item
 import { useUser } from "./UserContext";
 
 const Header = () => {
-    const { user, logout, alert, closeAlert } = useUser(); // Destructure the new alert state and closeAlert
+    const { user, logout, alert, closeAlert } = useUser();
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -57,23 +57,23 @@ const Header = () => {
                             }}
                         >
                             <MenuItem onClick={handleClose} component={Link} to="/myevents">
-                                <FavoriteIcon
-                                    style={{ marginRight: "10px" }}
-                                    color="primary"
-                                />
+                                <FavoriteIcon style={{ marginRight: "10px" }} color="primary" />
                                 My Events
                             </MenuItem>
-                            <MenuItem
-                                onClick={handleClose}
-                                component={Link}
-                                to="/mytickets"
-                            >
+                            <MenuItem onClick={handleClose} component={Link} to="/mytickets">
                                 <ConfirmationNumberIcon
                                     style={{ marginRight: "10px" }}
                                     color="primary"
                                 />
                                 My Tickets
                             </MenuItem>
+                            {/* Add Event menu item */}
+                            {user.profileType === "EventOrganizer" && (
+                                <MenuItem onClick={handleClose} component={Link} to="/addevent">
+                                    <EventIcon style={{ marginRight: "10px" }} color="primary" />
+                                    Add Event
+                                </MenuItem>
+                            )}
                             <MenuItem onClick={handleClose} component={Link} to="/profile">
                                 <ListItemIcon>
                                     <AccountCircleIcon
@@ -126,11 +126,7 @@ const Header = () => {
                     </>
                 )}
             </div>
-            <Snackbar
-                open={alert.open}
-                autoHideDuration={6000}
-                onClose={closeAlert}
-            >
+            <Snackbar open={alert.open} autoHideDuration={6000} onClose={closeAlert}>
                 <Alert onClose={closeAlert} severity="success" sx={{ width: "100%" }}>
                     {alert.message}
                 </Alert>

@@ -14,10 +14,7 @@ const WideBanner = () => (
         <div className="flex flex-col self-stretch my-auto text-lg font-bold text-gray-50 max-md:mt-10">
           <div className="text-4xl">Make your own Event </div>
           <div className="mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-          </div>
-          <div className="justify-center items-center px-16 py-6 mt-6 text-center text-white rounded-md shadow-2xl bg-zinc-500 max-md:px-5">
-            Create Events
+            Your platform for developing ground-breaking events.{" "}
           </div>
         </div>
       </div>

@@ -13,22 +13,24 @@ import { UserProvider } from "./components/UserContext";
 import ProfilePage from "./components/ProfilePage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MyEvents from "./components/MyEvents";
 
 
 const App: FC = () => {
   return (
     <UserProvider>
       <div className="flex flex-col items-center pt-8 bg-gray-50 rounded-3xl">
-      <BrowserRouter>
-        <Chat />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/register" element={<UserRegister />} />
-          <Route path="/login" element={<UserLogin />} />
-          <Route path="/profile" element={<ProfilePage />} />
-        </Routes>
+        <BrowserRouter>
+          <Chat />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/register" element={<UserRegister />} />
+            <Route path="/login" element={<UserLogin />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/myevents" element={<MyEvents />} />
+          </Routes>
         </BrowserRouter>
       </div>
     </UserProvider>
