@@ -1,11 +1,13 @@
 .ticket {
   width: 80%;
   max-width: 600px;
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  align-self: center;
 }
 
 .ticket-header {
@@ -13,7 +15,7 @@
   color: #fff;
   padding: 20px;
   text-align: center;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px;
 }
 
 .ticket-header h1 {
@@ -23,143 +25,103 @@
 
 .ticket-header p {
   font-size: 16px;
-
 }
 
 .ticket-body {
   padding: 20px;
 }
 
-.ticket-description {
-  margin-bottom: 20px;
- 
-}
-
 .ticket-tickets {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  align-self: center;
+  
+}
+
+.purchase-button {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
 .ticket-ticket {
   background-color: #f8f9fa;
   border-radius: 5px;
   padding: 15px;
-  border: 2px solid #121111;
+  border: 2px solid #ccc;
+  border: 2px solid #1d1b1b;
+  
+
 }
 
 .ticket-ticket h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  border: 2px solid #121111;
+  font-weight: bold;
 }
-..input{
-  border-block-color: #121111;
-}
+
 .ticket-ticket input {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  border: 2px solid #121111;
-  
-  
+  border: 2px solid #1d1b1b;
+
 }
 
-.ticket-footer {
-  text-align: center;
-  border: 2px solid #121111;
-  border-block-end-width: 2px;
-  border-radius:  10px 10px;
-  
-}
-
-.purchase-button {
-  background-color: transparent;
-  color: #333;
-  border: 2px solid #121111;
-  padding: 12px 24px; /* Adjust padding */
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.purchase-button:hover {
+.ticket-ticket button {
   background-color: #333;
   color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-
 .dialog {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 999;
-  text-bold: bold;
-  border: 2px solid #121111;
-}
-
-.dialog h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  border: 2px solid #121111;
-  text-bold: bold;
-}
-
-.dialog p {
-  font-size: 16px;
-  margin-bottom: 10px;
-  border: 2px solid #121111;
-}
-.ticket {
-  
-  /* Your existing CSS styles for the ticket container */
-  position: relative; /* Set the container to relative position */
-}
-
-.dialog {
-  /* Styles for the dialog */
-  position: absolute; /* Set the dialog to absolute position */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center the dialog perfectly */
-  background-color: #fff;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ccc;
+  border: 2px solid #1d1b1b;
+
 }
 
 .dialog button {
-  /* Styles for the buttons inside the dialog */
   background-color: #333;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  border: 2px solid #1d1b1b;
+
 }
 
 .error-dialog {
-  /* Styles for the error dialog */
-  position: absolute; /* Set the error dialog to absolute position */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center the error dialog perfectly */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #1d1b1b;
 }
 
 .error-dialog button {
-  /* Styles for the close button inside the error dialog */
   background-color: #333;
   color: #fff;
   border: none;
@@ -168,6 +130,144 @@
   cursor: pointer;
 }
 
-.error-dialog button:hover {
-  background-color: #555; /* Change color on hover */
+.purchase-confirmation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.purchase-confirmation {
+  background-color: #ffffff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.purchase-confirmation h2 {
+  color: #333; /* Dark gray text */
+}
+
+.purchase-confirmation p {
+  margin-bottom: 20px;
+  color: #555; /* Medium gray text */
+}
+
+.confirmation-options {
+  margin-top: 20px;
+}
+
+.confirmation-options p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Dark gray text */
+}
+
+.confirmation-options div {
+  display: flex;
+  justify-content: center;
+}
+
+.option-link {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #333; /* Dark gray background */
+  color: #fff; /* White text */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.option-link:hover {
+  background-color: #555; /* Darker gray background on hover */
+}
+
+.purchase-confirmation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.purchase-confirmation {
+  background-color: #fff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.purchase-confirmation h2 {
+  color: #333; /* Dark gray text */
+  margin-bottom: 20px;
+}
+
+.purchase-confirmation p {
+  color: #555; /* Medium gray text */
+  margin-bottom: 20px;
+}
+
+.confirmation-options {
+  margin-top: 20px;
+}
+
+.confirmation-options p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Dark gray text */
+}
+
+.confirmation-options div {
+  display: flex;
+  justify-content: center;
+}
+
+.option-link {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #333; /* Dark gray background */
+  color: #fff; /* White text */
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.option-link:hover {
+  background-color: #555; /* Darker gray background on hover */
+}
+
+
+
+
+
+/* not-found.css */
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.not-found-content {
+  background-color: #ffffff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.not-found-title {
+  color: #343a40; /* Dark gray text */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.not-found-message {
+  color: #6c757d; /* Medium gray text */
+  font-size: 1.2rem;
+  line-height: 1.5;
 }

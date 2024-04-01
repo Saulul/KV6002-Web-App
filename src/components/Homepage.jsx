@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import { useUser } from "./UserContext";
 import {Container, Grid} from "@mui/material";
 
+
 function Homepage(props) {
     const [events, setEvents] = useState([]);
     const { user } = useUser();

@@ -1,30 +1,54 @@
-## Running React on Repl.it
+# EventHive
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+## Welcome to the EventHive, a platform designed to help you discover, browse, and purchase tickets for various events. From concerts to conferences, workshops to sports events, the Events App has you covered.
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
+## Features
 
-Using the two in conjunction is one of the fastest ways to build a web app.
+- **Event Discovery**: Browse through a diverse range of events happening locally or globally.
+- **Ticket Purchase**: Seamlessly purchase tickets for your favorite events with just a few clicks.
+- **User Authentication**: Securely log in to your account to manage tickets and preferences.
+- **AI-Powered Assistant chatbot**: Get instant help and recommendations from our AI-powered chatbot.
+- **Event Details**: Access comprehensive information about each event, including date, time, venue, description, and ticket availability.
+- **Purchase History**: Keep track of all the events you've purchased tickets for.
+- **Email Confirmation**: Receive a confirmation email upon successful ticket purchase.
+- **Responsive Design**: Enjoy a smooth experience across all devices, whether it's desktop, tablet, or mobile.
+- **Analytics Dashboard**: Monitor user activity, ticket sales, and event popularity through the admin dashboard.
 
-### Getting Started
-- Hit run
-- Edit [App.tsx](#src/App.tsx) and watch it live update!
+## Technologies Used
 
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
+- **Frontend**: React, JavaScript, TypeScript
+- **Backend**: Strapi CMS
+- **Authentication**: JSON Web Tokens (JWT)
+- **API Integration**: Axios, Mapbox, Strapi, Stripe, OpenAI
+- **Database**: Strapi
+- **Deployment**: Vercel (Frontend), Digital Ocean (Backend)
+- **Email Service**: SendGrid, Nodemailer
 
-### Typescript
+## Setup
 
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Saulul/KV6002-Web-App/
+   
+### Installation of Dependencies
+1. **Install Dependencies**:
+   ```bash
+   npm install
 
-### Installation of packages
-**install** npm install @stripe/stripe-js 
+2. **Run the development server**:
+   ```bash
+   npm run dev
+You can now view the web application locally on http://localhost:5173/
 
-(for stripe integration)
+### Login and Signup Component Credentials
+- **Username**: todd@gmail.com
+- **Password**: password
 
-**install** npm install @mui/material @emotion/react @emotion/styled
-
-(React component library that provides pre-designed and customizable components following the Material Design guidelines developed by Google)
-
-**install** npm install @mui/material @mui/icons-material react
-
-(Material-UI components for React applications. These components are designed following the Material Design guidelines and cover a wide range of UI elements such as buttons, forms, cards, navigation components, and more.)
+### Testing Stripe Payment Integration
+For testing purposes, use the following payment information:
+- **Card Number**: 4242 4242 4242 4242
+- **Expiration Date**: 20/09
+- **CSV**: 456
+- **Name**: Mickey Mouse
+- **Email**: mickeymouse@gmail.com
+- **Address**: *any*
