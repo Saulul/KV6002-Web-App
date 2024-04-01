@@ -15,6 +15,7 @@ import ConfirmationPage from "./components/ConfirmationPage.jsx";
 import Stripeint from "./components/Stripeint.jsx";
 import Buytickets from "./components/BuyTickets.jsx";
 import Purchase from "./components/Purchase.jsx";
+import AnalyticsDashboard from "./components/AnalyticsDashboard";
 
 const App: FC = () => {
   return (
@@ -30,6 +31,7 @@ const App: FC = () => {
         <Route path="*" element={<NoPage />} />
         <Route path="/stripe-payment" element={<Stripeint />} />
         <Route path="/buytickets" element={<Buytickets />} />
+        <Route path="/analytics" element={<AnalyticsDashboard />} />
         <Route path="/events/:id" element={<Event />} />
       </Routes>
     </BrowserRouter>
